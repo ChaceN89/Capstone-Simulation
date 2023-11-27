@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{B681112F-1251-ECB6-14E2-46AEC4138DF4}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DisplayDepth.cs">
+    <Files>
+      <File FileName="Assets/Simple Water Shader/Resources/WaterReflection.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WaterFilter.cs" Line="67" Column="54" />
+      <File FileName="Assets/Scripts/TransformInfo.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/DisplayDepth.cs" Line="33" Column="1" />
+      <File FileName="Assets/Scripts/MoveDevice.cs" Line="22" Column="10" />
+      <File FileName="Assets/Scripts/CameraController.cs" Line="30" Column="57" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c6ed32cc-59bc-4ffb-ae19-93267fe502b8" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

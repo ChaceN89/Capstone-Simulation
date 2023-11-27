@@ -3,7 +3,15 @@
 public class CameraController : MonoBehaviour
 {
     public float rotationSpeed = 30.0f;
-    public float translationSpeed = 3.0f;
+
+    TransformInfo transformInfo;
+
+
+    void Start()
+    {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        transformInfo = playerObject.GetComponent<TransformInfo>();
+    }
 
     void Update()
     {
@@ -17,15 +25,11 @@ public class CameraController : MonoBehaviour
             transform.RotateAround(Vector3.zero, Vector3.up, -rotationSpeed * Time.deltaTime);
         }
 
-        // Translation with W and S keys
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.up * translationSpeed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.down * translationSpeed * Time.deltaTime, Space.World);
-        }
+        // Set the object's Y position to be the same as the player's Y position
+        Vector3 currentPosition = transform.position;
+        currentPosition.y = transformInfo.GetYPosition();
+        transform.position = currentPosition;
+
     }
 }
 
