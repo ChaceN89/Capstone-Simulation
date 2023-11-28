@@ -230,3 +230,6 @@ Cmd: compileSnippet
   error: 1 plat 14 at Sim/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/ShaderLibrary/DeclareOpaqueTexture.hlsl(10): gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value
  ok=1 outsize=153328
 
+Cmd: shutdown
+
+Quitting shader compiler process
