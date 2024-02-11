@@ -18,6 +18,10 @@ public class UseCaseAnimation : MonoBehaviour {
         animator.speed = 1f; // Ensure animation plays at normal speed
     }
 
+    void StartAnimation(){
+        animator.SetTrigger("PlayTrigg");
+    }
+
     void SlowDown(float speed){
         animator.speed = speed;
 
@@ -48,18 +52,21 @@ public class UseCaseAnimation : MonoBehaviour {
         // Check if the Animator component has been assigned
         if (animator != null) {
             // Example keyboard inputs to control animation
-            if (Input.GetKeyDown(KeyCode.P)) { // Press P to pause
-                Pause();
-            }
-            if (Input.GetKeyDown(KeyCode.R)) { // Press R to resume
-                Resume();
-            }
-            if (Input.GetKeyDown(KeyCode.T)) { // Press T to restart
+            if (Input.GetKeyDown(KeyCode.Space)) { // Press P to pause
                 Restart();
             }
-            if (Input.GetKeyDown(KeyCode.S)) { // Press S to slow down
-                SlowDown(0.5f); // Example speed, adjust as needed
-            }
+            // if (Input.GetKeyDown(KeyCode.P)) { // Press P to pause
+            //     Pause();
+            // }
+            // if (Input.GetKeyDown(KeyCode.R)) { // Press R to resume
+            //     Resume();
+            // }
+            // if (Input.GetKeyDown(KeyCode.T)) { // Press T to restart
+            //     Restart();
+            // }
+            // if (Input.GetKeyDown(KeyCode.S)) { // Press S to slow down
+            //     SlowDown(0.5f); // Example speed, adjust as needed
+            // }
         }
     }
 }
