@@ -1,0 +1,4 @@
+{
+    "dotnet.preferCSharpExtension": true,
+    "dotnet.defaultSolution": "Unity Project Capstone Sim/Unity Project Capstone Sim.sln"
+}
