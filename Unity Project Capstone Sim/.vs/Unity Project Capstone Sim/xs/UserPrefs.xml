@@ -1,19 +1,12 @@
 ﻿<Properties StartupConfiguration="{B681112F-1251-ECB6-14E2-46AEC4138DF4}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/gameManager.cs">
     <Files>
-      <File FileName="Assets/Simple Water Shader/Resources/WaterReflection.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/WaterFilter.cs" />
-      <File FileName="Assets/Scripts/TransformInfo.cs" Line="39" Column="1" />
-      <File FileName="Assets/Scripts/DisplayDepth.cs" />
-      <File FileName="Assets/Scripts/MoveDevice.cs" />
-      <File FileName="Assets/Scripts/CameraController.cs" Line="30" Column="58" />
-      <File FileName="Assets/Scripts/FishDisplay.cs" />
-      <File FileName="Assets/Scripts/RotateAroundY.cs" />
+      <File FileName="Assets/gameManager.cs" Line="7" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2a57d131-9a7f-4593-a9db-863eb930db24" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d01c8544-0911-4cf9-9458-ce371657e6a9" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
