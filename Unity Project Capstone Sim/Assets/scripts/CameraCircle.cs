@@ -3,34 +3,39 @@
 public class CameraCircle : MonoBehaviour {
     public float rotationSpeed = 30.0f;
 
-    private string objectTag = "none"; // initially none
+    private string objectTag = "gondola"; // initially none
     private TransformInfo transformInfo; // Script for the transform it's looking for based on the tag 
-
+    private new GameObject gameObject;
     void Start() {
 
     }
 
-    void SetObjectTag(string newTag) {
+    public void SetObjectTag(string newTag) {
         objectTag = newTag;
     }
 
     void Update() {
         // get the object i am looking at 
-        GameObject playerObject = GameObject.FindWithTag(objectTag);
-        transformInfo = playerObject.GetComponent<TransformInfo>();
+        gameObject = GameObject.FindWithTag(objectTag);
+        
+        // get eh transform info 
+        if (gameObject.TryGetComponent<TransformInfo>(out transformInfo)) {
+            // Use transformInfo's position for RotateAround
+            if (Input.GetKey(KeyCode.A)) {
+                transform.RotateAround(transformInfo.GetTransform().position, Vector3.up, rotationSpeed * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.D)) {
+                transform.RotateAround(transformInfo.GetTransform().position, Vector3.up, -rotationSpeed * Time.deltaTime);
+            }
 
-        // Rotation with A and D keys
-        if (Input.GetKey(KeyCode.A)) {
-            transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D)) {
-            transform.RotateAround(Vector3.zero, Vector3.up, -rotationSpeed * Time.deltaTime);
-        }
+            // Update the camera's Y position to match the object's Y position, maintaining the current height offset
+            Vector3 currentPosition = transform.position;
+            float heightOffset = currentPosition.y - transformInfo.GetTransform().position.y; // Calculate the current height difference
+            currentPosition.y = transformInfo.GetYPosition() + heightOffset;
+            transform.position = currentPosition;
 
-        // Set the object's Y position to be the same as the player's Y position
-        Vector3 currentPosition = transform.position;
-        currentPosition.y = transformInfo.GetYPosition();
-        transform.position = currentPosition;
+        } else {
+            Debug.LogError("TransformInfo component not found on object with tag " + objectTag);
+        }
     }
-
 }
