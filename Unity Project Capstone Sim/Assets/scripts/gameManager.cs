@@ -55,6 +55,10 @@ public class GameManager : MonoBehaviour {
         return activeScenario;
     }
 
+    public bool GetCameraStatus() {
+        return cameraUpdating;
+    }
+
     void Update() {
         if (cameraUpdating) {
             // Rotate and move the camera towards the target rotation
