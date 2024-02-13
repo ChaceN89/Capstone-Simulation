@@ -1,43 +1,64 @@
+/*
+gameManager.cs
+
+this script is the main driver for the game
+it has a couple of important functionalities 
+
+has functions that when activated move the camera to 1 of 3 transforms
+it will also active UI and camera controllers for each of scenerios 
+
+*/
+
 using UnityEngine;
 
-
-
 public class GameManager : MonoBehaviour {
-    // Object transforms to snap to 3 scenerios (the objcts can be what ever the focus of the scenerio is)
+
+    // Variables that control camera movement speed and distance etc for main camera motion 
+    public float rotationSpeed = 0.5f;
+    public float moveSpeed = 5f;
+
+    // Transforms for the main objects - each of the 3 scenerios 
     public Transform gondolaTransform;
     public Transform pUseCaseTransform;
     public Transform pDesignTransform;
 
-    // Variables that control camera movement speed and distance etc
-    public float rotationSpeed = 0.5f;
-    public float moveSpeed = 5f;
+    // References to canvas UIs for each of the 3 scenerios 
+    public Canvas pDesignCanvas;
+    public Canvas pUseCaseCanvas;
+    public Canvas gondolaCanvas;
+
+    // references to the scripts for controlling backend components for each of the 3 scenerios 
+    private GondolaBackend gondolaBackend;
+    private PDesignBackend pDesignBackend;
+    private PUseCaseBackend pUseCaseBackend;
 
     // Camera height and distances to object for each scenerio
-    public ScenerioParams pDesign = new() {name="pDesign", camHeight = 4f, distToCam = 5f };
-    public ScenerioParams pUseCase = new() {name="pUseCase", camHeight = 6f, distToCam = 6f };
-    public ScenerioParams gondola = new() {name="gondola", camHeight = 8f, distToCam = 15f };
+    public ScenerioParams pDesignParams = new() {name = "pDesign", camHeight = 4f, distToCam = 5f };
+    public ScenerioParams pUseCaseParams = new() {name = "pUseCase", camHeight = 6f, distToCam = 6f };
+    public ScenerioParams gondolaParams = new() {name = "gondola", camHeight = 8f, distToCam = 15f };
 
-    // the target of the camera motion for position and rotation 
-    private Vector3 targetPosition;
-    private Quaternion targetRotation;
+    // camera movement script for each of the 3 scenarios
+    private PDesignCamera pDesignCamera; 
+    private PUseCaseCamera pUseCaseCamera; 
+    private GondolaCamera gondolaCamera; 
 
     // If the camera if updating or not, and the current scenerio 
     private bool cameraUpdating = false;
-    private string activeScenario = "none";
+    public string activeScenario = "none";
 
-    // camera scripts 
-    public PDesignCamera pDesignCamera; // script to rotate the camera around the object 
-    public Transform cameraTransform;
 
-    // -------------- Getters -----------------
-    public string GetActiveScenerio() {
-        return activeScenario;
-    }
-    public bool GetCameraStatus() {
-        return cameraUpdating;
-    }
+  // The target position and rotation for the camera to move to - one of the 3 scenerio transforms  -and the main camera
+    private Vector3 targetPosition;
+    private Quaternion targetRotation;
+    public Transform cameraTransform; // main camera transform 
 
-    // ----------- Function triggered by buttons ----------
+
+    // ------------ Getters -----------
+    public string GetActiveScenerio() => activeScenario;
+    
+
+
+    // ----------- Functions triggered by buttons ----------
     // sets the active scenario and updates the camera behavious 
     public void SetActiveScenario(ScenerioParams scenario, Transform objectToMoveTo) {
         activeScenario = scenario.name;
@@ -45,18 +66,23 @@ public class GameManager : MonoBehaviour {
         UpdateActiveScripts(); // Update camera behavior and other scripts based on the new active scenario
     }
     // Call this method when the button for "gondolaSim" is clicked
-    public void OnGondolaSimButtonClicked() {
-        SetActiveScenario(gondola, gondolaTransform );
-    }
+    public void OnGondolaSimButtonClicked() => SetActiveScenario(gondolaParams, gondolaTransform);
+    
     // Call this method when the button for "prototypeDesign" is clicked
-    public void OnPrototypeDesignButtonClicked() {
-        SetActiveScenario(pDesign, pDesignTransform);
-    }
+    public void OnPrototypeDesignButtonClicked() => SetActiveScenario(pDesignParams, pDesignTransform);
+    
     // Call this method when the button for "prototypeUseCase" is clicked
-    public void OnPrototypeUseCaseButtonClicked() {
-        SetActiveScenario(pUseCase, pUseCaseTransform);
-    }
+    public void OnPrototypeUseCaseButtonClicked() => SetActiveScenario(pUseCaseParams, pUseCaseTransform);
+    
 
+    // Function to enable/disable a canvas or disable all canvuses
+    private void SetCanvasEnabled(Canvas canvas, bool isEnabled) => canvas.enabled = isEnabled;
+    
+    public void DeactivateAllCanvases(){
+        SetCanvasEnabled(pDesignCanvas, false);
+        SetCanvasEnabled(pUseCaseCanvas, false);
+        SetCanvasEnabled(gondolaCanvas, false);
+    }
 
 
     // This method sets the camera's target and starts the movement - very related to the update camera transform function 
@@ -91,38 +117,61 @@ public class GameManager : MonoBehaviour {
 
     // Looks at the current scenerio and  change if scripts are active or not (camera, UI etx)
     private void UpdateActiveScripts() {
+        // if camera is not updating we can show the correct UI and activate the corrcet camera
         if (!cameraUpdating) {
 
-            // Example conditions to activate/deactivate the CameraCircle script
-            // Adjust these conditions based on your scenarios
-            if (activeScenario == "pDesign" || activeScenario == "pUseCase") {
+            if (activeScenario == "pDesign" ){
+                pDesignCamera.enabled = true;
+                SetCanvasEnabled(pDesignCanvas, true);
                 
-                pDesignCamera.enabled = true; // Activate CameraCircle for specific scenarios
-                pDesignCamera.SetObjectTag(activeScenario);
+            }else if( activeScenario == "pUseCase") {
+                pUseCaseCamera.enabled = true;
+                SetCanvasEnabled(pUseCaseCanvas, true);
+            }
+            else if (activeScenario == "gondola") {
+                gondolaCamera.enabled = true;
+                SetCanvasEnabled(gondolaCanvas, true);
 
-                // more if statements for turnoing on and off other cameras
+            }else{ // disable everything if the wrong scenerio is called
+                DisableCameras(); 
+                DeactivateAllCanvases();
+                ResetBackendScripts();
             }
-            else {
-                DisableCameras(); // Deactivate otherwise
-                // deactivate all cameras
-            }
-        }
-        else {
+
+        // the camera is updating and everything should be reset  
+        }else {
             DisableCameras();
+            DeactivateAllCanvases();
+            ResetBackendScripts();
         }
     }
 
     // disbles all cameras
     private void DisableCameras() {
         pDesignCamera.enabled = false;
+        pUseCaseCamera.enabled = false;
+        gondolaCamera.enabled = false;
     }
+
+    public void ResetBackendScripts(){
+        gondolaBackend.Reset();
+        pDesignBackend.Reset();
+        pUseCaseBackend.Reset();
+    } 
+
 
     // makes cure the camerCircle Script it set 
     private void Start() {
-        // Optionally, find the CameraCircle component at start if not assigned
-        if (pDesignCamera == null) {
-            pDesignCamera = FindObjectOfType<PDesignCamera>();
-        }
+
+        // find all the cameras
+        pDesignCamera = FindObjectOfType<PDesignCamera>();
+        pUseCaseCamera = FindObjectOfType<PUseCaseCamera>();
+        gondolaCamera = FindObjectOfType<GondolaCamera>();
+
+        // find all the backend scripts
+        gondolaBackend = FindObjectOfType<GondolaBackend>();
+        pDesignBackend = FindObjectOfType<PDesignBackend>();
+        pUseCaseBackend = FindObjectOfType<PUseCaseBackend>();
     }
 
     // main update fucntion to see if the camera is updated and if not change the camera behaiours

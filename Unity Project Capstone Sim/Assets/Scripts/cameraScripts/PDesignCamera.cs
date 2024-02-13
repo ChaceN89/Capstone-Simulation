@@ -1,11 +1,19 @@
-﻿using UnityEngine;
+﻿/*
+PDesignCamera.cs
+
+Script to handle the camera movement when in the PDesign scenerio
+*/
+using UnityEngine;
+
+// could use the tag switching to alternate around the deisng components 
+// pDesignCamera.SetObjectTag(activeScenario);
 
 public class PDesignCamera : MonoBehaviour {
     // the rotation speed of the camera 
     public float rotationSpeed = 60.0f;
 
     // tag of object the camera will rotate around 
-    private string objectTag = null; // initially none
+    private string objectTag = "pDesign"; // initially none
     private TransformInfo transformInfo; // Script for the transform it's looking for based on the tag 
     private new GameObject gameObject;
 
@@ -24,6 +32,8 @@ public class PDesignCamera : MonoBehaviour {
             // get the transform info and if not Degub 
             if (gameObject.TryGetComponent<TransformInfo>(out transformInfo)) {
                 // Use transformInfo's position for RotateAround
+
+
                 if (Input.GetKey(KeyCode.A)) {
                     transform.RotateAround(transformInfo.GetTransform().position, Vector3.up, rotationSpeed * Time.deltaTime);
                 }

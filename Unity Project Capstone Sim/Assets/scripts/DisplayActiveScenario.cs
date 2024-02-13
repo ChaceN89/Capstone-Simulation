@@ -1,10 +1,13 @@
+/*
+DisplayActiveScenario.cs
+test script for showing the active scenerio - will be replaced with the button lighting up in the future
+*/
 using UnityEngine;
 using TMPro; // Namespace for TextMeshPro
 
 public class DisplayActiveScenario : MonoBehaviour {
     private TextMeshProUGUI textMesh; // Reference to the TextMeshPro component
-    private GameManager gameManager; // Reference to the GameManager script
-                                     // Reference to the GameManager script
+    private GameManager gameManager; // Reference to the GameManager script to get he active scenerio
 
     void Start() {
         // Get the TextMeshPro component attached to the same GameObject

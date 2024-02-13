@@ -1,5 +1,7 @@
-//  to attach to an object to easily get the transform info of an object 
-// returns may different function used to get values from the object this script is attached to
+/*
+to attach to an object to easily get the transform info of an object 
+returns may different function used to get values from the object this script is attached to
+*/
 using UnityEngine;
 
 public class TransformInfo : MonoBehaviour {
