@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     private string activeScenario = "none";
 
     // camera scripts 
-    public CameraCircleObject CameraCircleObject; // script to rotate the camera around the object 
+    public PDesignCamera pDesignCamera; // script to rotate the camera around the object 
     public Transform cameraTransform;
 
     // -------------- Getters -----------------
@@ -92,14 +92,13 @@ public class GameManager : MonoBehaviour {
     // Looks at the current scenerio and  change if scripts are active or not (camera, UI etx)
     private void UpdateActiveScripts() {
         if (!cameraUpdating) {
-            if (CameraCircleObject == null) return;
 
             // Example conditions to activate/deactivate the CameraCircle script
             // Adjust these conditions based on your scenarios
             if (activeScenario == "pDesign" || activeScenario == "pUseCase") {
                 
-                CameraCircleObject.enabled = true; // Activate CameraCircle for specific scenarios
-                CameraCircleObject.SetObjectTag(activeScenario);
+                pDesignCamera.enabled = true; // Activate CameraCircle for specific scenarios
+                pDesignCamera.SetObjectTag(activeScenario);
 
                 // more if statements for turnoing on and off other cameras
             }
@@ -115,14 +114,14 @@ public class GameManager : MonoBehaviour {
 
     // disbles all cameras
     private void DisableCameras() {
-        CameraCircleObject.enabled = false;
+        pDesignCamera.enabled = false;
     }
 
     // makes cure the camerCircle Script it set 
     private void Start() {
         // Optionally, find the CameraCircle component at start if not assigned
-        if (CameraCircleObject == null) {
-            CameraCircleObject = FindObjectOfType<CameraCircleObject>();
+        if (pDesignCamera == null) {
+            pDesignCamera = FindObjectOfType<PDesignCamera>();
         }
     }
 

@@ -1,46 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
+//  to attach to an object to easily get the transform info of an object 
+// returns may different function used to get values from the object this script is attached to
 using UnityEngine;
 
-public class TransformInfo : MonoBehaviour{
+public class TransformInfo : MonoBehaviour {
+    public float GetYPosition() => transform.position.y;
+    public float GetXPosition() => transform.position.x;
+    public float GetZPosition() => transform.position.z;
+    public Transform GetTransform() => transform;
 
-    // Function to get the Y position of the object
-    public float GetYPosition(){
-        return transform.position.y;
-    }
+    public Vector3 GetRotationEuler() => transform.eulerAngles;
+    public Quaternion GetRotationQuaternion() => transform.rotation;
+    public Vector3 GetScale() => transform.localScale;
 
-    // Function to get the X position of the object
-    public float GetXPosition(){
-        return transform.position.x;
-    }
+    public void SetPosition(Vector3 newPosition) => transform.position = newPosition;
+    public void SetRotationEuler(Vector3 newEulerAngles) => transform.eulerAngles = newEulerAngles;
+    public void SetRotationQuaternion(Quaternion newRotation) => transform.rotation = newRotation;
+    public void SetScale(Vector3 newScale) => transform.localScale = newScale;
 
-    // Function to get the Z position of the object
-    public float GetZPosition(){
-        return transform.position.z;
-    }
+    public void Translate(Vector3 translation) => transform.Translate(translation);
+    public void Rotate(Vector3 eulerAngles) => transform.Rotate(eulerAngles);
+    public void RotateQuaternion(Quaternion rotation) => transform.rotation *= rotation;
 
-    // Function to get the Transform of the object
-    public Transform GetTransform(){
-        return transform;
+    public void LookAt(Transform target) => transform.LookAt(target);
+    public void LookAt(Vector3 point) => transform.LookAt(point);
+
+    public Vector3 GetForward() => transform.forward;
+    public Vector3 GetRight() => transform.right;
+    public Vector3 GetUp() => transform.up;
+
+    public void ResetTransform() {
+        transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+        transform.localScale = Vector3.one;
     }
 }
-
 
 /*
 for accessing this script
 
-    pass an object to this script
-    public GameObject playerObject; // Assign the player object in the Unity Editor
-
-    in start get the script of the obejct 
-        TransformInfo playerDepthScript = playerObject.GetComponent<TransformInfo>();
-
-    playerDepthScript.fucntions()
-
-
-Or use in start
     GameObject playerObject = GameObject.FindWithTag("Player");
-    TransformInfo playerDepthScript = playerObject.GetComponent<TransformInfo>();
-
-
+    TransformInfo playerTransformInfo = playerObject.GetComponent<TransformInfo>();
  */

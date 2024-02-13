@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraCircleObject : MonoBehaviour {
+public class PDesignCamera : MonoBehaviour {
     // the rotation speed of the camera 
     public float rotationSpeed = 60.0f;
 
