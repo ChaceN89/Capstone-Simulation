@@ -30,6 +30,9 @@ public class PDesignCamera : MonoBehaviour {
     public void SetObjectTag(string newTag) {
         objectTag = newTag;
     }
+    public string GetObjectTag() {
+        return objectTag;
+    }
 
     // main update camera logic
     void Update() {
