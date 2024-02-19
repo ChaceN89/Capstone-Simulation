@@ -14,6 +14,13 @@ sysinfo.txt
 *.pidb.meta
 *Logs
 
+
+###
+#User Settings 
+###
+*.userprefs
+UserSettings/
+
 ###
 # VS/MD solution and project files
 ###
@@ -40,9 +47,6 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
-
-
-
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
