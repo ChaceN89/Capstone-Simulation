@@ -172,6 +172,11 @@ public class GameManager : MonoBehaviour {
         gondolaBackend = FindObjectOfType<GondolaBackend>();
         pDesignBackend = FindObjectOfType<PDesignBackend>();
         pUseCaseBackend = FindObjectOfType<PUseCaseBackend>();
+
+
+        DisableCameras();
+        DeactivateAllCanvases();
+        ResetBackendScripts();
     }
 
     // main update fucntion to see if the camera is updated and if not change the camera behaiours
