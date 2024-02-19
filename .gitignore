@@ -19,7 +19,7 @@ sysinfo.txt
 #User Settings 
 ###
 *.userprefs
-UserSettings/
+*UserSettings/
 
 ###
 # VS/MD solution and project files
