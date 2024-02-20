@@ -20,7 +20,7 @@ public class PDesignCamera : MonoBehaviour {
 
     // tag of object the camera will rotate around 
     private string objectTag = "pDesign"; // initially none
-    private TransformInfo transformInfo; // Script for the transform it's looking for based on the tag 
+    // private TransformInfo transformInfo; // Script for the transform it's looking for based on the tag 
     private new GameObject gameObject;
 
 
@@ -41,74 +41,50 @@ public class PDesignCamera : MonoBehaviour {
             // get the game object related to the current tag
             gameObject = GameObject.FindWithTag(objectTag);
 
-            // get the transform info and if not Degub 
-            if (gameObject.TryGetComponent<TransformInfo>(out transformInfo)) {
-                // Use transformInfo's position for RotateAround
-
-
-                if (Input.GetMouseButtonDown(0)) {
-                    previousPosition = Input.mousePosition;
-                    Debug.Log("prvious position " + previousPosition );
-                }
-
-
-                if (Input.GetMouseButton(0)) {
-                    Vector3 delta = Input.mousePosition - previousPosition;
-                    previousPosition = Input.mousePosition;
-
-                    // Calculate the new rotation around the Y axis (yaw)
-                    float angleY = delta.x * sensitivity * Time.deltaTime;
-                    // Calculate the new rotation around the X axis (pitch)
-                    float angleX = -delta.y * sensitivity * Time.deltaTime;
-
-                    // Rotate the camera around the target on the Y axis
-                    transform.RotateAround(gameObject.transform.position, Vector3.up, angleY);
-
-                    // Get current rotation
-                    Vector3 currentRotation = transform.eulerAngles;
-                    // Modify the pitch (X rotation) based on the mouse movement
-                    currentRotation.x += angleX;
-                    // Clamp the X rotation to prevent flipping
-                    currentRotation.x = Mathf.Clamp(currentRotation.x, -89f, 89f);
-                    
-                    // Apply the rotation to the camera
-                    transform.eulerAngles = currentRotation;
-
-                    // Keep looking at the target
-                    transform.LookAt(gameObject.transform);
-                }
-
-                                // Zooming using scroll wheel
-                float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
-                Vector3 currentPosition = transform.position;
-                float distance = Vector3.Distance(currentPosition, transformInfo.GetTransform().position);
-
-                distance -= scrollWheelInput * zoomSpeed;
-                distance = Mathf.Clamp(distance, minZoomDistance, maxZoomDistance);
-
-                currentPosition = transformInfo.GetTransform().position - transform.forward * distance;
-                transform.position = currentPosition;
-
-
-
-                // if (Input.GetKey(KeyCode.A)) {
-                //     transform.RotateAround(transformInfo.GetTransform().position, Vector3.up, rotationSpeed * Time.deltaTime);
-                // }
-                // if (Input.GetKey(KeyCode.D)) {
-                //     transform.RotateAround(transformInfo.GetTransform().position, Vector3.up, -rotationSpeed * Time.deltaTime);
-                // }
-
-                // // Update the camera's Y position to match the object's Y position, maintaining the current height offset
-                // Vector3 currentPosition = transform.position;
-                // float heightOffset = currentPosition.y - transformInfo.GetTransform().position.y; // Calculate the current height difference
-                // currentPosition.y = transformInfo.GetYPosition() + heightOffset;
-                // transform.position = currentPosition;
-
-            } else {
-                Debug.LogError("TransformInfo component not found on object with tag " + objectTag);
+            // rotate and zoom around the object 
+            if (Input.GetMouseButtonDown(0)) {
+                previousPosition = Input.mousePosition;
             }
+
+            if (Input.GetMouseButton(0)) {
+                Vector3 delta = Input.mousePosition - previousPosition;
+                previousPosition = Input.mousePosition;
+
+                // Calculate the new rotation around the Y axis (yaw)
+                float angleY = delta.x * sensitivity * Time.deltaTime;
+                // Calculate the new rotation around the X axis (pitch)
+                float angleX = -delta.y * sensitivity * Time.deltaTime;
+
+                // Rotate the camera around the target on the Y axis
+                transform.RotateAround(gameObject.transform.position, Vector3.up, angleY);
+
+                // Get current rotation
+                Vector3 currentRotation = transform.eulerAngles;
+                // Modify the pitch (X rotation) based on the mouse movement
+                currentRotation.x += angleX;
+                // Clamp the X rotation to prevent flipping
+                currentRotation.x = Mathf.Clamp(currentRotation.x, -89f, 89f);
+                
+                // Apply the rotation to the camera
+                transform.eulerAngles = currentRotation;
+
+                // Keep looking at the target
+                transform.LookAt(gameObject.transform);
+            }
+
+                            // Zooming using scroll wheel
+            float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+            Vector3 currentPosition = transform.position;
+            float distance = Vector3.Distance(currentPosition, gameObject.transform.position);
+
+            distance -= scrollWheelInput * zoomSpeed;
+            distance = Mathf.Clamp(distance, minZoomDistance, maxZoomDistance);
+
+            currentPosition = gameObject.transform.position - transform.forward * distance;
+            transform.position = currentPosition;
+
         }else{
             Debug.Log("No valid objectTag set for CameraCircleObject.");
-        }
+        }  
     }
 }
