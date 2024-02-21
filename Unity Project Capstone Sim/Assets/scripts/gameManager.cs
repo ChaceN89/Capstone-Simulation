@@ -14,23 +14,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     // Variables that control camera movement speed and distance etc for main camera motion 
-    public float rotationSpeed = 0.5f;
-    public float moveSpeed = 5f;
+    public float rotationSpeed = 0.5f; // rotation speed of the camera
+    public float moveSpeed = 5f; // speed of the camera
+    public Transform mainCameraTransform; // main camera transform 
+    public string activeScenario = "none";  // The current scenerio 
 
-    // Transforms for the main objects - each of the 3 scenerios 
-    public Transform gondolaTransform;
-    public Transform pUseCaseTransform;
-    public Transform pDesignTransform;
-
-    // References to canvas UIs for each of the 3 scenerios 
-    public Canvas pDesignCanvas;
-    public Canvas pUseCaseCanvas;
-    public Canvas gondolaCanvas;
-
-    // references to the scripts for controlling backend components for each of the 3 scenerios 
-    private GondolaBackend gondolaBackend;
-    private PDesignBackend pDesignBackend;
-    private PUseCaseBackend pUseCaseBackend;
 
     // Camera height and distances to object for each scenerio
     public ScenerioParams pDesignParams = new() {name = "pDesign", camHeight = 4f, distToCam = 5f };
@@ -42,48 +30,39 @@ public class GameManager : MonoBehaviour {
     private PUseCaseCamera pUseCaseCamera; 
     private GondolaCamera gondolaCamera; 
 
-    // If the camera if updating or not, and the current scenerio 
+    // references to the scripts for controlling backend components for each of the 3 scenerios 
+    private GondolaBackend gondolaBackend;
+    private PDesignBackend pDesignBackend;
+    private PUseCaseBackend pUseCaseBackend;
+
+    // private 
     private bool cameraUpdating = false;
-    public string activeScenario = "none";
-
-
-  // The target position and rotation for the camera to move to - one of the 3 scenerio transforms  -and the main camera
-    private Vector3 targetPosition;
-    private Quaternion targetRotation;
-    public Transform cameraTransform; // main camera transform 
+    private Vector3 targetPosition;  // The target position and rotation for the camera to move to - one of the 3 scenerio transforms  -and the main camera
+    private Quaternion targetRotation; // the rotation of the target to snap to 
 
 
     // ------------ Getters -----------
     public string GetActiveScenerio() => activeScenario;
     
 
-
     // ----------- Functions triggered by buttons ----------
     // sets the active scenario and updates the camera behavious 
-    public void SetActiveScenario(ScenerioParams scenario, Transform objectToMoveTo) {
+    public void SetActiveScenario(ScenerioParams scenario ) {
         activeScenario = scenario.name;
-        MoveCameraToTarget(scenario, objectToMoveTo);
+        MoveCameraToTarget(scenario, scenario.target);
         UpdateActiveScripts(); // Update camera behavior and other scripts based on the new active scenario
     }
     // Call this method when the button for "gondolaSim" is clicked
-    public void OnGondolaSimButtonClicked() => SetActiveScenario(gondolaParams, gondolaTransform);
+    public void OnGondolaSimButtonClicked() => SetActiveScenario(gondolaParams);
     
     // Call this method when the button for "prototypeDesign" is clicked
-    public void OnPrototypeDesignButtonClicked() => SetActiveScenario(pDesignParams, pDesignTransform);
+    public void OnPrototypeDesignButtonClicked() => SetActiveScenario(pDesignParams);
     
     // Call this method when the button for "prototypeUseCase" is clicked
-    public void OnPrototypeUseCaseButtonClicked() => SetActiveScenario(pUseCaseParams, pUseCaseTransform);
+    public void OnPrototypeUseCaseButtonClicked() => SetActiveScenario(pUseCaseParams);
     
-
     // Function to enable/disable a canvas or disable all canvuses
     private void SetCanvasEnabled(Canvas canvas, bool isEnabled) => canvas.enabled = isEnabled;
-    
-    public void DeactivateAllCanvases(){
-        SetCanvasEnabled(pDesignCanvas, false);
-        SetCanvasEnabled(pUseCaseCanvas, false);
-        SetCanvasEnabled(gondolaCanvas, false);
-    }
-
 
     // This method sets the camera's target and starts the movement - very related to the update camera transform function 
     // takes the target transform and the distance we want the camera to be away from it and the height of the camera at the obeject
@@ -106,10 +85,10 @@ public class GameManager : MonoBehaviour {
     // updates the camera position over time and turns off the updating bool when the camera is finsihed moving
     private void UpdateCameraTransform() {
         // Rotate and move the camera towards the target rotation
-        cameraTransform.SetPositionAndRotation(Vector3.MoveTowards(cameraTransform.position, targetPosition, Time.deltaTime * moveSpeed), Quaternion.Slerp(cameraTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed));
+        mainCameraTransform.SetPositionAndRotation(Vector3.MoveTowards(mainCameraTransform.position, targetPosition, Time.deltaTime * moveSpeed), Quaternion.Slerp(mainCameraTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed));
 
         // Check if the camera has reached the target position and rotation
-        if (Vector3.Distance(cameraTransform.position, targetPosition) < 0.1f && Quaternion.Angle(cameraTransform.rotation, targetRotation) < 1.0f) {
+        if (Vector3.Distance(mainCameraTransform.position, targetPosition) < 0.1f && Quaternion.Angle(mainCameraTransform.rotation, targetRotation) < 1.0f) {
             cameraUpdating = false; // Stop updating once the target is reached
             // Here you can add any functionality you want to occur right after the camera stops moving
         }
@@ -119,18 +98,17 @@ public class GameManager : MonoBehaviour {
     private void UpdateActiveScripts() {
         // if camera is not updating we can show the correct UI and activate the corrcet camera
         if (!cameraUpdating) {
-
             if (activeScenario == "pDesign" ){
                 pDesignCamera.enabled = true;
-                SetCanvasEnabled(pDesignCanvas, true);
+                SetCanvasEnabled(pDesignParams.canvas, true);
                 
             }else if( activeScenario == "pUseCase") {
                 pUseCaseCamera.enabled = true;
-                SetCanvasEnabled(pUseCaseCanvas, true);
+                SetCanvasEnabled(pUseCaseParams.canvas, true);
             }
             else if (activeScenario == "gondola") {
                 gondolaCamera.enabled = true;
-                SetCanvasEnabled(gondolaCanvas, true);
+                SetCanvasEnabled(gondolaParams.canvas, true);
 
             }else{ // disable everything if the wrong scenerio is called
                 DisableCameras(); 
@@ -153,11 +131,18 @@ public class GameManager : MonoBehaviour {
         gondolaCamera.enabled = false;
     }
 
-    public void ResetBackendScripts(){
+    private void ResetBackendScripts(){
         gondolaBackend.Reset();
         pDesignBackend.Reset();
         pUseCaseBackend.Reset();
     } 
+
+        // Disable all the canvases 
+    private void DeactivateAllCanvases(){
+        SetCanvasEnabled(gondolaParams.canvas, false);
+        SetCanvasEnabled(pDesignParams.canvas, false);
+        SetCanvasEnabled(pUseCaseParams.canvas, false);
+    }
 
 
     // makes cure the camerCircle Script it set 
@@ -190,10 +175,13 @@ public class GameManager : MonoBehaviour {
     }
 }
 
-// Class for the system paramerters  
+
+// Class for the system paramerters for each scenerio 
 [System.Serializable]
 public class ScenerioParams {
-    public string name;
-    public float camHeight;
-    public float distToCam;
+    public string name; // name of the scenerio
+    public float camHeight; // the height of the object to the camera when it moves to it
+    public float distToCam; // the distacne of the object to the camera when it moves to it
+    public Canvas canvas; // the UI for the scenerio 
+    public Transform target; // the location of the scenerio
 }

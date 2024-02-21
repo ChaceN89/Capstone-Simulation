@@ -9,51 +9,42 @@ using UnityEngine;
 // pDesignCamera.SetObjectTag(activeScenario);
 
 public class PDesignCamera : MonoBehaviour {
-    // the rotation speed of the camera 
-    public float rotationSpeed = 60.0f;
-
+    
+    public float rotationSpeed = 60.0f; // the rotation speed of the camera 
     public float sensitivity = 10f; // Sensitivity of the mouse movement
     public float zoomSpeed = 2.0f; // Zoom speed of the camera
     public float minZoomDistance = 2.0f; // Minimum distance to the object
     public float maxZoomDistance = 10.0f; // Maximum distance to the object
 
-    public float lookAtSpeed = 10f;
 
-    // tag of object the camera will rotate around 
-    private string objectTag = "pDesign"; // initially none
-    // private TransformInfo transformInfo; // Script for the transform it's looking for based on the tag 
+    // the name the camera will rotate around
+    private string targetName="Valve";
+
+
+ 
     
-    // game object we are looking to follow
-    private GameObject targetObject;
-    private Renderer targetRenderer; // the render of the object we want to snap to
+    private Vector3 previousPosition; // the previous position for using the mouse
 
-    // the previous position for using the mouse
-    private Vector3 previousPosition;
 
-    // function to set the object tag if it needs to be changed
-    public void SetObjectTag(string newTag) {
-        objectTag = newTag;
+
+    public void ResetSnap(){
+        targetName = "Valve";
     }
-    public string GetObjectTag() {
-        return objectTag;
-    }
+
+
 
     // main update camera logic
     void Update() {
+
+        CheckMouseClick();
+
         // Check if the object tag exists and it it does
-        if (objectTag != null) {
+        if (targetName != null) {
             // get the game object related to the current tag
-            targetObject = GameObject.FindWithTag(objectTag);
-            targetRenderer = targetObject.GetComponentInChildren<Renderer>();
-
-            Vector3 targetPosition;
-
-            // the mesh of the main object is slightly up so this fixes that problem without having to change the model
-            if (objectTag == "pDesign"){ 
-                targetPosition = targetObject.transform.position;
-            }else{
-                targetPosition = targetRenderer.bounds.center;
-            }
+            GameObject targetObject = GameObject.Find(targetName);
+            Renderer targetRenderer = targetObject.GetComponentInChildren<Renderer>();
+            Vector3 targetPosition = targetRenderer.bounds.center;;
+  
 
             // rotate and zoom around the object 
             if (Input.GetMouseButtonDown(0)) {
@@ -101,4 +92,19 @@ public class PDesignCamera : MonoBehaviour {
             Debug.Log("No valid objectTag set for CameraCircleObject.");
         }  
     }
+    private void CheckMouseClick() {
+        if (Input.GetMouseButtonDown(0)) {
+            // Prepare a raycast from the mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            // Perform the raycast
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
+                // Log the name of the object that was hit
+                Debug.Log(hit.transform.name);
+
+                targetName = hit.transform.name;
+            }
+        }
+    }
+
 }
