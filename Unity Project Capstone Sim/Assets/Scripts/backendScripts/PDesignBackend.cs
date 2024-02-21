@@ -12,7 +12,7 @@ public class PDesignBackend : MonoBehaviour {
     private PDesignCamera pDesignCamera;
     private Animator pDesignAnimator;
 
-    public ToggleList [] toggleList;
+    public ToggleList[] toggleList;
 
     // findthe camera script to change where the camera is focused on 
     private void Start() {
@@ -55,23 +55,49 @@ public class PDesignBackend : MonoBehaviour {
         }
     }
 
-    public void CheckVisibility(){
-        foreach (ToggleList item in toggleList) {
-            // Find GameObjects with the specified tag
-            GameObject[] objs = GameObject.FindGameObjectsWithTag(item.name);
-            foreach (var obj in objs) {
-                if (obj.TryGetComponent<MeshRenderer>(out var meshRenderer)) {
-                    // Hide or show the mesh based on the toggle's state
-                    meshRenderer.enabled = item.toggle.isOn;
-                } else {
-                    Debug.LogWarning($"MeshRenderer not found on GameObject with tag: {item.name}.");
+
+
+public void CheckVisibility() {
+    foreach (ToggleList item in toggleList) {
+        // For each name in the item's names array, search through all children and descendants
+        foreach (string name in item.names) {
+            // Start the search from this GameObject's transform
+            Transform foundChild = FindDeepChild(transform, name);
+            if (foundChild != null) {
+                // Get the Renderer component, if any, directly on the found child
+                Renderer renderer = foundChild.GetComponent<Renderer>();
+                if (renderer != null) {
+                    // Toggle visibility of this renderer only
+                    renderer.enabled = item.toggle.isOn;
                 }
+
+                // Check for a SkinnedMeshRenderer as well, in case the object uses one
+                SkinnedMeshRenderer skinnedRenderer = foundChild.GetComponent<SkinnedMeshRenderer>();
+                if (skinnedRenderer != null) {
+                    // Toggle visibility of this skinned mesh renderer only
+                    skinnedRenderer.enabled = item.toggle.isOn;
+                }
+            } else {
+                Debug.LogWarning($"Child with name {name} not found.");
             }
         }
     }
+}
 
+// Recursive method to find a child by name in the descendants
+private Transform FindDeepChild(Transform parent, string name) {
+    foreach (Transform child in parent) {
+        if (child.name == name) {
+            return child;
+        }
+        Transform found = FindDeepChild(child, name);
+        if (found != null) {
+            return found;
+        }
+    }
+    return null; // If no child with the name is found
+}
 
-  
 
 }
 
@@ -80,7 +106,7 @@ public class PDesignBackend : MonoBehaviour {
 // Class for the system paramerters  
 [System.Serializable]
 public class ToggleList {
-    public string names;
+    public string [] names;
     public Toggle toggle;
 
 }
