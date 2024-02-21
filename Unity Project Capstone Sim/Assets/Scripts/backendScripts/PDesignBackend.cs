@@ -8,12 +8,22 @@ using UnityEngine;
 public class PDesignBackend : MonoBehaviour {
     
     private PDesignCamera pDesignCamera; 
-
+    private Animator pDesignAnimator;
 
     // findthe camera script to change where the camera is focused on 
     private void Start() {
         pDesignCamera = FindObjectOfType<PDesignCamera>();
+        pDesignAnimator = GetComponent<Animator>();
+    }
 
+    // explode the model 
+    public void ExplodeModel(){
+        pDesignAnimator.SetTrigger("Explode");
+    }
+
+    // rebuild the model 
+    public void RebuildModel(){
+        pDesignAnimator.SetTrigger("Rebuild");
     }
 
 
