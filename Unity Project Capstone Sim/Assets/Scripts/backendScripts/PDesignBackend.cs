@@ -27,9 +27,12 @@ public class PDesignBackend : MonoBehaviour {
     }
 
 
+    public void ChangeSnap(string name){
+        pDesignCamera.SetObjectTag(name);
+    }
+
     // dummy button call for now to snap to lid or the design 
     public void OnSnapClick(){
-        Debug.Log("Change hthe camera ");
         if(pDesignCamera.GetObjectTag() =="pDesign"){
             pDesignCamera.SetObjectTag("pLid");
         }else{
@@ -38,7 +41,8 @@ public class PDesignBackend : MonoBehaviour {
     }
 
     public void Reset(){
-        Debug.Log("P Design is reset ");
+        // Debug.Log("P Design is reset ");
+        pDesignCamera.SetObjectTag("pDesign");
     }
 
 

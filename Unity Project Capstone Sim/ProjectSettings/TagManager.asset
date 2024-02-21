@@ -8,6 +8,16 @@ TagManager:
   - pDesign
   - pUseCase
   - pLid
+  - pArduino
+  - pBox
+  - pBattery
+  - pRightSideElectronic
+  - pValveBracket
+  - pFunnel
+  - pBalloon
+  - pDepthSensor
+  - pC02Sensor
+  - pAirValve
   layers:
   - Default
   - TransparentFX
