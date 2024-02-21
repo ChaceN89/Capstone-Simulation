@@ -17,13 +17,17 @@ public class PDesignCamera : MonoBehaviour {
     public float minZoomDistance = 2.0f; // Minimum distance to the object
     public float maxZoomDistance = 10.0f; // Maximum distance to the object
 
+    public float lookAtSpeed = 10f;
 
     // tag of object the camera will rotate around 
     private string objectTag = "pDesign"; // initially none
     // private TransformInfo transformInfo; // Script for the transform it's looking for based on the tag 
-    private new GameObject gameObject;
+    
+    // game object we are looking to follow
+    private GameObject targetObject;
+    private Renderer targetRenderer; // the render of the object we want to snap to
 
-
+    // the previous position for using the mouse
     private Vector3 previousPosition;
 
     // function to set the object tag if it needs to be changed
@@ -39,7 +43,17 @@ public class PDesignCamera : MonoBehaviour {
         // Check if the object tag exists and it it does
         if (objectTag != null) {
             // get the game object related to the current tag
-            gameObject = GameObject.FindWithTag(objectTag);
+            targetObject = GameObject.FindWithTag(objectTag);
+            targetRenderer = targetObject.GetComponentInChildren<Renderer>();
+
+            Vector3 targetPosition;
+
+            // the mesh of the main object is slightly up so this fixes that problem without having to change the model
+            if (objectTag == "pDesign"){ 
+                targetPosition = targetObject.transform.position;
+            }else{
+                targetPosition = targetRenderer.bounds.center;
+            }
 
             // rotate and zoom around the object 
             if (Input.GetMouseButtonDown(0)) {
@@ -56,7 +70,7 @@ public class PDesignCamera : MonoBehaviour {
                 float angleX = -delta.y * sensitivity * Time.deltaTime;
 
                 // Rotate the camera around the target on the Y axis
-                transform.RotateAround(gameObject.transform.position, Vector3.up, angleY);
+                transform.RotateAround(targetPosition, Vector3.up, angleY);
 
                 // Get current rotation
                 Vector3 currentRotation = transform.eulerAngles;
@@ -69,18 +83,18 @@ public class PDesignCamera : MonoBehaviour {
                 transform.eulerAngles = currentRotation;
 
                 // Keep looking at the target
-                transform.LookAt(gameObject.transform);
+                transform.LookAt(targetPosition);
             }
 
                             // Zooming using scroll wheel
             float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
             Vector3 currentPosition = transform.position;
-            float distance = Vector3.Distance(currentPosition, gameObject.transform.position);
+            float distance = Vector3.Distance(currentPosition, targetPosition);
 
             distance -= scrollWheelInput * zoomSpeed;
             distance = Mathf.Clamp(distance, minZoomDistance, maxZoomDistance);
 
-            currentPosition = gameObject.transform.position - transform.forward * distance;
+            currentPosition = targetPosition - transform.forward * distance;
             transform.position = currentPosition;
 
         }else{

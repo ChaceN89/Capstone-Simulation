@@ -18,6 +18,8 @@ TagManager:
   - pDepthSensor
   - pC02Sensor
   - pAirValve
+  - pScrews
+  - pWires
   layers:
   - Default
   - TransparentFX
