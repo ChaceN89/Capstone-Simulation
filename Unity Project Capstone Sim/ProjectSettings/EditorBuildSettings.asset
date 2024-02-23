@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Old Assets/old_Scenes/ProtoType Simulation.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Simulation Playground.unity
+    guid: 0441fdde7ee114b5cb9b6daf041e9e82
   m_configObjects: {}
