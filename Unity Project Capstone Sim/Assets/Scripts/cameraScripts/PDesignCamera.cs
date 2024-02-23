@@ -10,8 +10,8 @@ using UnityEngine;
 
 public class PDesignCamera : MonoBehaviour {
     
-    public float rotationSpeed = 60.0f; // the rotation speed of the camera 
-    public float sensitivity = 10f; // Sensitivity of the mouse movement
+    public float rotationSpeed = 5f; // the rotation speed of the camera 
+    public float sensitivity = 4f; // Sensitivity of the mouse movement
     public float zoomSpeed = 2.0f; // Zoom speed of the camera
     public float minZoomDistance = 2.0f; // Minimum distance to the object
     public float maxZoomDistance = 10.0f; // Maximum distance to the object
@@ -26,8 +26,6 @@ public class PDesignCamera : MonoBehaviour {
     private bool isClicked = false;
     private float doubleClickTimer = 0f;
     private float doubleClickThreshold = 0.3f; // Adjust as needed
-
-
 
 
     // reset the snap to the Valve which is the center object
@@ -53,10 +51,6 @@ public class PDesignCamera : MonoBehaviour {
             Renderer targetRenderer = targetObject.GetComponentInChildren<Renderer>();
             Vector3 targetPosition = targetRenderer.bounds.center;;
   
-            // targetName can be changed at any point so i need a function to handle the updating of the camera to snap to the new object
-            // i owuld like it to move at a cetian speed
-            UpdateCameraToTarget(targetPosition);
-
             // move around the object 
             MoveCameraAroundObject(targetPosition);
 
@@ -68,13 +62,6 @@ public class PDesignCamera : MonoBehaviour {
         }  
     }
 
-
-
-
-
-    private void UpdateCameraToTarget(Vector3 targetPosition){
-
-    }
 
     private void MoveCameraAroundObject(Vector3 targetPosition){
 
