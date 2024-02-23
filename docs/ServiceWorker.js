@@ -1,9 +1,9 @@
 const cacheName = "DefaultCompany-Unity Project-0.1.0";
 const contentToCache = [
     "Build/AlphaBuild.loader.js",
-    "Build/AlphaBuild.framework.js.br",
-    "Build/AlphaBuild.data.br",
-    "Build/AlphaBuild.wasm.br",
+    "Build/AlphaBuild.framework.js",
+    "Build/AlphaBuild.data",
+    "Build/AlphaBuild.wasm",
     "TemplateData/style.css"
 
 ];
