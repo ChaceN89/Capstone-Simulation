@@ -1,0 +1,13 @@
+<IfModule mod_mime.c>
+  AddEncoding gzip .gz
+</IfModule>
+<IfModule mod_deflate.c>
+  RewriteEngine On
+  RewriteRule ^(.*\.js)($|/) - [E=accept-encoding:application/javascript]
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch ".(js.gz)$">
+    Header set Content-Encoding gzip
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+</IfModule>
