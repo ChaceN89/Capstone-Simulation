@@ -2,40 +2,63 @@ using UnityEngine;
 using TMPro; // Make sure to include this for TextMeshPro
 
 public class HighlightOutlineOnMouseOver : MonoBehaviour {
-    private Material originalMaterial;
     private Material[] originalMaterials;
     private Renderer objectRenderer;
     public Material outlineMaterial;
     public GameObject popupPrefab; // Assign your popup prefab in the inspector
     private GameObject currentPopup; // To keep track of the instantiated popup
 
+    private GameManager gameManager; // Reference to the GameManager script to get the active scenario
+
+
     private void Start() {
         objectRenderer = GetComponent<Renderer>();
-        originalMaterial = objectRenderer.material;
         originalMaterials = objectRenderer.materials;
+        gameManager = FindObjectOfType<GameManager>(); // get the game manager
+
     }
 
     private void OnMouseEnter() {
         if (!Input.GetMouseButton(0)) {
             ChangeMaterialsForObject(outlineMaterial);
-            Debug.Log("Mouse over: " + gameObject.name);
 
             // Instantiate the popup prefab and position it within the Canvas
-            if (popupPrefab != null) {
-                currentPopup = Instantiate(popupPrefab);
-                Canvas canvas = GameObject.FindObjectOfType<Canvas>(); // Find the Canvas in the scene
-                if (canvas != null) {
-                    // Set the popup as a child of the canvas with correct positioning
-                    currentPopup.transform.SetParent(canvas.transform, false);
+            CreatePopUp();
+        }
+    }
 
-                    // Optional: Adjust position based on mouse or object position
-                    // Here you might need to convert world position to canvas position if needed
+    private void CreatePopUp(){
+        if (popupPrefab != null) {
+            currentPopup = Instantiate(popupPrefab);
+            Canvas canvas = GameObject.FindObjectOfType<Canvas>(); // Find the Canvas in the scene
+            if (canvas != null) {
+                // Set the popup as a child of the canvas with correct positioning
+                currentPopup.transform.SetParent(canvas.transform, false);
 
-                    // Set the text of the popup using the GetPopupText method.
-                    TMP_Text popupText = currentPopup.GetComponentInChildren<TMP_Text>();
-                    if (popupText != null) {
-                        popupText.text = GetPopupText(gameObject.name); // Use the GetPopupText function
-                    }
+                // Optional: Adjust position based on mouse or object position
+                // Here you might need to convert world position to canvas position if needed
+
+                string scenario = gameManager.GetActiveScenerio();
+
+                TMP_Text text1 = GameObject.Find("Text 1").GetComponent<TMP_Text>();
+                TMP_Text text2 = GameObject.Find("Text 2").GetComponent<TMP_Text>();
+
+
+                if (scenario == "gondola"){
+                    // deactivate text 1
+                    text1.gameObject.SetActive(false);
+                    text2.gameObject.SetActive(true);
+                }else{
+                    text1.gameObject.SetActive(true);
+                    text2.gameObject.SetActive(false);
+                    //deactivate text 2
+                }
+           
+
+                // Set the text of the popup using the GetPopupText method.
+                TMP_Text popupText = currentPopup.GetComponentInChildren<TMP_Text>();
+                if (popupText != null) {
+                    popupText.text = GetPopupText(gameObject.name); // Use the GetPopupText function
                 }
             }
         }
@@ -57,12 +80,8 @@ public class HighlightOutlineOnMouseOver : MonoBehaviour {
         }
     }
 
-    // private void ChangeMaterialsForObject(Material mat){
-    //     objectRenderer.material = mat;
-    // }
 
     private void OnMouseExit() {
-        // ChangeMaterialsForObject(originalMaterial);
         objectRenderer.materials = originalMaterials;
 
         // Destroy the popup when the mouse exits
