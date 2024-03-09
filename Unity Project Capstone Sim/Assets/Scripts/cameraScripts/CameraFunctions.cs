@@ -29,10 +29,11 @@ public class CameraFunctions : MonoBehaviour {
             // get the game object related to the current tag
             GameObject targetObject = GameObject.Find(targetName);
 
-
-            // get the render for the object
-            Renderer targetRenderer = targetObject.GetComponent<Renderer>();
+            // get the render for the object and use that 
+            // Renderer targetRenderer = targetObject.GetComponent<Renderer>();
             // Vector3 targetPosition = targetRenderer.bounds.center;;
+            
+            // get the target position 
             Vector3 targetPosition = targetObject.transform.position;
   
             // move around the object 
