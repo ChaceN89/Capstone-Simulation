@@ -56,7 +56,7 @@ public class HighlightOutlineOnMouseOver : MonoBehaviour {
             return "This is a Lid. Lids are used to cover something, like a box, to protect its contents or to keep it contained.";
    
 
-        case "Arduino":
+        case "Ardunio":
             return "This is an Arduino. An open-source electronics platform based on easy-to-use hardware and software.";
 
         case "Balloon Top":
@@ -72,7 +72,7 @@ public class HighlightOutlineOnMouseOver : MonoBehaviour {
         case "Air Valve Bottom":
             return "This is the Air Valve. It allows for the control of airflow into or out of the balloon.";
 
-        case "CO2 Sensors Top":
+        case "C02 Sensors Top":
         case "CO2 Sensor Bottom":
             return "This is the CO2 Sensor. It's used for measuring carbon dioxide levels at the base of the balloon.";
     
@@ -84,7 +84,7 @@ public class HighlightOutlineOnMouseOver : MonoBehaviour {
         case "Gasket":
             return "This is the Gasket. It's used to seal the interface between two parts, preventing leaks.";
 
-        case "Breadboards":
+        case "BreadBoards":
             return "These are Breadboards. They are used for prototyping electronic circuits without soldering.";
         
         case "Depth Sensor":
@@ -95,7 +95,7 @@ public class HighlightOutlineOnMouseOver : MonoBehaviour {
   
         case "Mini Bread Boards Side":
             return "These are Mini Bread Boards located on the side. They are used for additional circuitry on the sides of the device.";
-        case "MicroSD Card Module":
+        case "MicroSD Card Module ":
             return "This is a MicroSD Card Module. It's used to read from and write to MicroSD cards, often used for data storage. Has an SD card";
 
         case "Relay":
@@ -108,6 +108,7 @@ public class HighlightOutlineOnMouseOver : MonoBehaviour {
         case "Valve":
             return "This is a Valve. Valves are used to control the flow of fluids by opening, closing, or partially obstructing passageways.";
         
+      
         default:
             return "";
     
