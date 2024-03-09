@@ -3,6 +3,7 @@ PDesignBackend.cs
 
 Script to handle the button inputs and calculations for the p design 
 */
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,6 @@ public class PDesignBackend : MonoBehaviour {
         pDesignAnimator = GetComponent<Animator>();
     }
 
-
     public void Update() {
         CheckVisibility();
     }
@@ -28,15 +28,22 @@ public class PDesignBackend : MonoBehaviour {
     // explode the model animation
     public void ExplodeModel() => pDesignAnimator.SetTrigger("Explode");
 
-
     // rebuild the model animation
     public void RebuildModel() => pDesignAnimator.SetTrigger("Rebuild");
+    
+    public void ShrinkBalloons(){
+        pDesignAnimator.SetTrigger("ShrinkBalloons");
+        // pDesignAnimator.SetBool("SmallBalloons", false);
+    } 
+    public void ExpandBalloons() {
+        pDesignAnimator.SetTrigger("GrowBalloons");
+        // pDesignAnimator.SetBool("SmallBalloons", false);
+    } 
 
     // change where the camera is facing by setting a new tag 
     public void ResetSnap() {
         pDesignCamera.ResetSnap();
     }
-
 
     // resets the script when called 
     public void Reset() {
@@ -61,14 +68,14 @@ public class PDesignBackend : MonoBehaviour {
                     // Get the Renderer component, if any, directly on the found child
                     if (foundChild.TryGetComponent<Renderer>(out var renderer)) {
                         renderer.enabled = item.toggle.isOn;// Toggle visibility of this renderer only
-                        ToggleCollider(foundChild, item.toggle.isOn);
                     }
 
                     // Check for a SkinnedMeshRenderer as well, in case the object uses one (and regular renders)
                     if (foundChild.TryGetComponent<SkinnedMeshRenderer>(out var skinnedRenderer)) {
                         skinnedRenderer.enabled = item.toggle.isOn; // Toggle visibility of this skinned mesh renderer only
-                        ToggleCollider(foundChild, item.toggle.isOn);
                     }
+                    // toggle the collider
+                    ToggleCollider(foundChild, item.toggle.isOn);
                 }
                 else {
                     Debug.LogWarning($"Child with name {name} not found.");
@@ -77,12 +84,34 @@ public class PDesignBackend : MonoBehaviour {
         }
     }
 
+    private void ToggleItems(ToggleList item, bool state){
+        foreach (string name in item.names) {
+                Transform foundChild = FindDeepChild(transform, name);
+                if (foundChild != null) {
+                    // Get the Renderer component, if any, directly on the found child
+                    if (foundChild.TryGetComponent<Renderer>(out var renderer)) {
+                        renderer.enabled = state;// Toggle visibility of this renderer only
+                    }
+
+                    // Check for a SkinnedMeshRenderer as well, in case the object uses one (and regular renders)
+                    if (foundChild.TryGetComponent<SkinnedMeshRenderer>(out var skinnedRenderer)) {
+                        skinnedRenderer.enabled = state; // Toggle visibility of this skinned mesh renderer only
+                    }
+                    // toggle the collider
+                    ToggleCollider(foundChild, state);
+                }
+                else {
+                    Debug.LogWarning($"Child with name {name} not found.");
+                }
+            }
+    }
+
     private void ToggleCollider(Transform target, bool state) {
-        // Disable or enable the Collider component, if present
-        if (target.TryGetComponent<Collider>(out var collider)) {
+        // Disable or enable all the Colliders on the component, if they are present
+        Collider[] colliders = target.GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders) {
             collider.enabled = state;
         }
-
     }
 
     // Recursive method to find a child by name in the descendants
