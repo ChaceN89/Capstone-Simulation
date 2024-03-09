@@ -6526,13 +6526,13 @@ PrefabInstance:
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 49565164}
+      objectReference: {fileID: 49565167}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -6541,12 +6541,12 @@ PrefabInstance:
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExpandBalloons
+      value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PDesignBackend, Assembly-CSharp
+      value: UnityEngine.Animator, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
@@ -6561,7 +6561,7 @@ PrefabInstance:
     - target: {fileID: 1949457271785158404, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_text
-      value: Expand Ballons
+      value: Expand Balloons
       objectReference: {fileID: 0}
     - target: {fileID: 2672076434030012424, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
@@ -10189,7 +10189,7 @@ PrefabInstance:
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
@@ -10200,7 +10200,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 49565164}
+      objectReference: {fileID: 49565167}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -10219,7 +10219,7 @@ PrefabInstance:
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShrinkBalloons
+      value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
@@ -10229,7 +10229,7 @@ PrefabInstance:
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PDesignBackend, Assembly-CSharp
+      value: UnityEngine.Animator, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
@@ -10239,7 +10239,7 @@ PrefabInstance:
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
+      value: ShrinkBalloons
       objectReference: {fileID: 0}
     - target: {fileID: 1176201176948171743, guid: d6e662101c18746bb8433d0b91db22c8,
         type: 3}
@@ -10549,7 +10549,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7a84cf24e264a4e769d01649688cddb5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -847.48
+      value: -821.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a84cf24e264a4e769d01649688cddb5,
         type: 3}

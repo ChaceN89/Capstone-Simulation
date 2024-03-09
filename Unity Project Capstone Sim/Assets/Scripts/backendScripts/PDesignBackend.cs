@@ -25,20 +25,22 @@ public class PDesignBackend : MonoBehaviour {
         CheckVisibility();
     }
 
-    // explode the model animation
-    public void ExplodeModel() => pDesignAnimator.SetTrigger("Explode");
+    // functions to use animaitons- but they are called directly by the buttons now - keeping this here for referecne
+    // // explode the model animation
+    // public void ExplodeModel() => pDesignAnimator.SetTrigger("Explode");
 
-    // rebuild the model animation
-    public void RebuildModel() => pDesignAnimator.SetTrigger("Rebuild");
+    // // rebuild the model animation
+    // public void RebuildModel() => pDesignAnimator.SetTrigger("Rebuild");
     
-    public void ShrinkBalloons(){
-        pDesignAnimator.SetTrigger("ShrinkBalloons");
-        // pDesignAnimator.SetBool("SmallBalloons", false);
-    } 
-    public void ExpandBalloons() {
-        pDesignAnimator.SetTrigger("GrowBalloons");
-        // pDesignAnimator.SetBool("SmallBalloons", false);
-    } 
+    // public void ShrinkBalloons(){
+    //     pDesignAnimator.SetTrigger("ShrinkBalloons");
+    //     // pDesignAnimator.SetBool("SmallBalloons", false);
+    // } 
+    // public void ExpandBalloons() {
+    //     pDesignAnimator.SetTrigger("GrowBalloons");
+    //     // pDesignAnimator.SetBool("SmallBalloons", false);
+    // } 
+    //-----------------------------------------------
 
     // change where the camera is facing by setting a new tag 
     public void ResetSnap() {
@@ -84,31 +86,10 @@ public class PDesignBackend : MonoBehaviour {
         }
     }
 
-    private void ToggleItems(ToggleList item, bool state){
-        foreach (string name in item.names) {
-                Transform foundChild = FindDeepChild(transform, name);
-                if (foundChild != null) {
-                    // Get the Renderer component, if any, directly on the found child
-                    if (foundChild.TryGetComponent<Renderer>(out var renderer)) {
-                        renderer.enabled = state;// Toggle visibility of this renderer only
-                    }
-
-                    // Check for a SkinnedMeshRenderer as well, in case the object uses one (and regular renders)
-                    if (foundChild.TryGetComponent<SkinnedMeshRenderer>(out var skinnedRenderer)) {
-                        skinnedRenderer.enabled = state; // Toggle visibility of this skinned mesh renderer only
-                    }
-                    // toggle the collider
-                    ToggleCollider(foundChild, state);
-                }
-                else {
-                    Debug.LogWarning($"Child with name {name} not found.");
-                }
-            }
-    }
 
     private void ToggleCollider(Transform target, bool state) {
         // Disable or enable all the Colliders on the component, if they are present
-        Collider[] colliders = target.GetComponentsInChildren<Collider>();
+        Collider[] colliders = target.GetComponents<Collider>();
         foreach (Collider collider in colliders) {
             collider.enabled = state;
         }
