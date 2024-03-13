@@ -11,7 +11,7 @@ public class PUseCaseCamera : MonoBehaviour {
     public float maxZoom = 16.0f; // Maximum distance to the object
 
     // the name the camera will rotate around - Valve is in center and is default 
-    private string targetName="PUseCaseBoat";
+    private string targetName="Pully";
 
     // for storing the camera functions also attached to the camera
     private CameraFunctions cameraFunctions;
@@ -22,7 +22,7 @@ public class PUseCaseCamera : MonoBehaviour {
 
     // reset the snap to the Valve which is the center object
     public void ResetSnap(){
-        targetName="PUseCaseBoat";
+        targetName="Pully";
     }
 
     // main update camera logic
