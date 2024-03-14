@@ -201,7 +201,7 @@ public class Infomation : MonoBehaviour{
         
 
             // for the P use Case infomation 
-        case "pUseCase":
+        case "PUseCase":
             return "The Deep Sea CO2 Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant.";
 
         // for the P use Case infomation 

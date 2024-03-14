@@ -2,52 +2,30 @@ using UnityEngine;
 using TMPro; // Make sure to include this for TextMeshPro
 
 public class HighlightOutlineOnMouseOver : MonoBehaviour {
-    private Renderer[] originalRenderers;
-    private Material[][] originalMaterials;
+    private Material[] originalMaterials;
+    private Renderer objectRenderer;
     public Material outlineMaterial;
-    public GameObject popupPrefab;
-    private GameObject currentPopup;
+    public GameObject popupPrefab; // Assign your popup prefab in the inspector
+    private GameObject currentPopup; // To keep track of the instantiated popup
 
-    private GameManager gameManager;
-    private Infomation info; // Assuming this is correctly implemented elsewhere
+    private GameManager gameManager; // Reference to the GameManager script to get the active scenario
+
+    private Infomation info;
 
     private void Start() {
-        originalRenderers = GetComponentsInChildren<Renderer>(true);
-        originalMaterials = new Material[originalRenderers.Length][];
-        for (int i = 0; i < originalRenderers.Length; i++) {
-            originalMaterials[i] = originalRenderers[i].materials;
-        }
-        gameManager = FindObjectOfType<GameManager>();
-        info = FindObjectOfType<Infomation>();
+        objectRenderer = GetComponent<Renderer>();
+        originalMaterials = objectRenderer.materials;
+        gameManager = FindObjectOfType<GameManager>(); // get the game manager
+        info = FindObjectOfType<Infomation>(); // get the game manager
+
     }
 
     private void OnMouseEnter() {
         if (!Input.GetMouseButton(0)) {
-            foreach (Renderer renderer in originalRenderers) {
-                ChangeMaterialsForObject(renderer, outlineMaterial);
-            }
+            ChangeMaterialsForObject(outlineMaterial);
+
+            // Instantiate the popup prefab and position it within the Canvas
             CreatePopUp();
-        }
-    }
-
-    private void ChangeMaterialsForObject(Renderer renderer, Material newMaterial) {
-        if (renderer.materials.Length > 1) {
-            Material[] newMaterials = new Material[renderer.materials.Length];
-            for (int i = 0; i < newMaterials.Length; i++) {
-                newMaterials[i] = newMaterial;
-            }
-            renderer.materials = newMaterials;
-        } else {
-            renderer.material = newMaterial;
-        }
-    }
-
-    private void OnMouseExit() {
-        for (int i = 0; i < originalRenderers.Length; i++) {
-            originalRenderers[i].materials = originalMaterials[i];
-        }
-        if (currentPopup != null) {
-            Destroy(currentPopup);
         }
     }
 
@@ -88,31 +66,31 @@ public class HighlightOutlineOnMouseOver : MonoBehaviour {
         }
     }
 
-    // private void ChangeMaterialsForObject(Material newMaterial) {
-    //     // Check if there are multiple materials
-    //     if (objectRenderer.materials.Length > 1) {
-    //         Material[] newMaterials = new Material[objectRenderer.materials.Length];
-    //         for (int i = 0; i < newMaterials.Length; i++) {
-    //             // Set each material to the new material
-    //             newMaterials[i] = newMaterial;
-    //         }
-    //         objectRenderer.materials = newMaterials;
-    //     }
-    //     else {
-    //         // If there is only one material, just set it directly
-    //         objectRenderer.material = newMaterial;
-    //     }
-    // }
+    private void ChangeMaterialsForObject(Material newMaterial) {
+        // Check if there are multiple materials
+        if (objectRenderer.materials.Length > 1) {
+            Material[] newMaterials = new Material[objectRenderer.materials.Length];
+            for (int i = 0; i < newMaterials.Length; i++) {
+                // Set each material to the new material
+                newMaterials[i] = newMaterial;
+            }
+            objectRenderer.materials = newMaterials;
+        }
+        else {
+            // If there is only one material, just set it directly
+            objectRenderer.material = newMaterial;
+        }
+    }
 
 
-    // private void OnMouseExit() {
-    //     objectRenderer.materials = originalMaterials;
+    private void OnMouseExit() {
+        objectRenderer.materials = originalMaterials;
 
-    //     // Destroy the popup when the mouse exits
-    //     if (currentPopup != null) {
-    //         Destroy(currentPopup);
-    //     }
-    // }
+        // Destroy the popup when the mouse exits
+        if (currentPopup != null) {
+            Destroy(currentPopup);
+        }
+    }
 
   
 
