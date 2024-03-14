@@ -27,15 +27,23 @@ public class Infomation : MonoBehaviour{
 
                 TMP_Text text1 = GameObject.Find("Text 1").GetComponent<TMP_Text>();
                 TMP_Text text2 = GameObject.Find("Text 2").GetComponent<TMP_Text>();
+                RectTransform panel1 = GameObject.Find("Panel 1").GetComponent<RectTransform>();
+                RectTransform panel2 = GameObject.Find("Panel 2").GetComponent<RectTransform>();
+
 
 
                 if (scenario == "gondola"){
                     // deactivate text 1
                     text1.gameObject.SetActive(false);
+                    panel1.gameObject.SetActive(false);
                     text2.gameObject.SetActive(true);
+                    panel2.gameObject.SetActive(true);
                 }else{
                     text1.gameObject.SetActive(true);
+                    panel1.gameObject.SetActive(true);
                     text2.gameObject.SetActive(false);
+                    panel2.gameObject.SetActive(false);
+
                     //deactivate text 2
                 }
            
