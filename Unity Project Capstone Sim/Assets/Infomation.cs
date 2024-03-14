@@ -7,48 +7,48 @@ public class Infomation : MonoBehaviour{
    public string GetPopupText(string objectName) {
         switch (objectName) {
             case "Box":
-                return "This is a Box. Boxes are used for storing and transporting items.";
+                return "The box is used to contain and protect the various components. The design features rounded edges to reduce drag in the water. It contains 38 screws to hold the components in place, and is filled with mineral oil to help alleviate hydrostatic pressure.";
             case "Lid":
-                return "This is a Lid. Lids are used to cover something, like a box, to protect its contents or to keep it contained.";
+                return "The lid is used to access the components while sealing them off when in use. It features a waterproof gasket and four latches to secure the box and the components within.";
             case "Ardunio":
-                return "This is an Arduino. An open-source electronics platform based on easy-to-use hardware and software.";
+                return "The Arduino is a board-based microcontroller that serves as the brain for the system. It reads measurement data from the connected instruments, controls the solenoid based on this data, and records the data to the SD card.";
             case "Balloon Top":
             case "Balloon Bottom":
-                return "This is the Balloon. It serves as the base for the balloon structure and may hold various components. Also has a Clamp to keep it in place.";
+                return "The balloons are used as a compressible canister for the CO2. With gravity and the balloon's unique design, compressed liquid CO2 can flow from the top balloon to the bottom. Each balloon also has a clamp to keep it in place.";
             case "Funnel Top":
             case "Funnel Bottom":
-                return "This is the Funnel. It's part of a structure that directs flow into the balloon. I attaches to the valve using hosing to dirct the flow";
+                return "The funnel assists with directing the flow of liquid CO2 from the top balloon to the bottom. The top of the funnel is used to attach the balloon with the help of a clamp, while the bottom of the funnel attaches to the valve using a short rubber hose.";
             case "Air Valve Top":
             case "Air Valve Bottom":
-                return "This is the Air Valve. It allows for the control of airflow into or out of the balloon.";
+                return "The air valve is used in conjunction with an air compressor to fill the balloons to the target pressure. They also allow for extraction of the separated gasses once the device has emerged from the water.";
             case "C02 Sensors Top":
             case "CO2 Sensor Bottom":
-                return "This is the CO2 Sensor. It's used for measuring carbon dioxide levels at the base of the balloon.";
+                return "The CO2 Sensors are used to show the difference in parts per million (PPM) of carbon dioxide between the two balloons. They use non-dispersive infrared sensors to detect CO2 in the range of 0-50000 ppm.";
             case "Battery case":
-                return "This is the Battery case. It stores and protects the battery, providing power to the system.";
+                return "The battery case stores and protects the battery, allowing the battery to be mounted to the side of the box.";
             case "Battery":
-                return "This is the Battery. It provides electrical power to all components in the setup.";
+                return "The battery provides up to 12 volts of electrical power to all components in the setup. It is mounted into the battery case, and is connected directly to the Arduino, which routes power to the rest of the components.";
             case "Gasket":
-                return "This is the Gasket. It's used to seal the interface between two parts, preventing leaks.";
+                return "The gasket is used to seal the gap between the opening in the box and the lid in order to prevent leaks. It is stuck directly to the edge of the box with a strong, waterproof adhesive..";
             case "BreadBoards":
-                return "These are Breadboards. They are used for prototyping electronic circuits without soldering.";
+                return "The breadboards maintain a strong electrical connection with the wires while using the breadboard's ability to provide various parallel circuits.";
             case "Depth Sensor":
-                return "This is a Depth Sensor. It's typically used to measure the distance to a surface or object.";
+                return "The depth sensor is used to determine the depth that the device is at. It does this by measuring the hydrostatic pressure and converting it to depth, where 1 bar of pressure is equivalent to 10 meters of depth. Features a depth resolution of 3 centimeters.";
             case "Mini Bread Board Back":
-                return "This is the back of a Mini Bread Board. It's used for creating small and compact electronic circuits.";
+                return "The mini breadboards function in the same manner as the larger breadboard, but with a smaller footprint.";
             case "Mini Bread Boards Side":
-                return "These are Mini Bread Boards located on the side. They are used for additional circuitry on the sides of the device.";
+                return "The mini breadboards function in the same manner as the larger breadboard, but with a smaller footprint.";
             case "MicroSD Card Module ":
-                return "This is a MicroSD Card Module. It's used to read from and write to MicroSD cards, often used for data storage. Has an SD card";
+                return "The MicroSD Card Module is used to write measurement data to the connected MicroSD card. The MicroSD card can be removed and connected to a computer to read the collected data once the device has emerged from the water.";
             case "Relay":
-                return "This is a Relay. It's an electrically operated switch used to control a circuit by a separate low-power signal.";
+                return "The relay is an electrically operated switch used to control a circuit by a separate low-power signal. Specifically, it is used to provide enough voltage to open the main valve.";
             case "Valve bracket":
-                return "This is a Valve bracket. It's used to mount and secure valves in place.";
+                return "The valve bracket is used to mount and secure the air valve in place. Since this valve is quite heavy, the bracket features thick reinforcement and six screws to mount the bracket to the box.";
             case "Hose Fitting":
             case "Hose Fitting.001":
-                return "This is a Hose Fitting. Hose fittings are used to securely connect hoses to other components.";
+                return "The hose fitting is used as an adapter between the rubber hose from the funnel to the air valve. It features a ribbed exterior to keep the hose from sliding off.";
             case "Valve":
-                return "This is a Valve. Valves are used to control the flow of fluids by opening, closing, or partially obstructing passageways.";
+                return "The valve is used to control the airflow between the balloons. It remains closed until the device has reached the target depth, in which the Arduino tells the valve to open. After a set amount of time, the valve closes again, sealing the liquid CO2 in the bottom balloon.";
 
 
             // for the gondola infomation 
@@ -66,7 +66,7 @@ public class Infomation : MonoBehaviour{
             case "Gondola Connection.011":
             case "Gondola Connection.012":
             case "Gondola Connection.013":
-                return "PlaceHolder description for all the gondolas.";
+                return "The gondola is connected to the cable using a spring-loaded grip, in the same way that cable cars, chairlifts, and other gondolas are fastened. This allows for CO2 to be extracted from the returning gondola without disturbing the pace of the other gondolas.";
 
             case "Sherical Enclosure":
             case "Sherical Enclosure.001":
@@ -82,7 +82,7 @@ public class Infomation : MonoBehaviour{
             case "Sherical Enclosure.011":
             case "Sherical Enclosure.012":
             case "Sherical Enclosure.013":
-                return "placeholder for Spherical Enclosure";
+                return "The spherical enclosure helps to protect the internal components from the harsh ocean environment without compromising the need for the balloons to compress. It is made of a more resistant material than the balloons, such as Kevlar.";
 
             case "Inner Enclosure":
             case "Inner Enclosure.001":
@@ -98,7 +98,7 @@ public class Infomation : MonoBehaviour{
             case "Inner Enclosure.011":
             case "Inner Enclosure.012":
             case "Inner Enclosure.013":
-                return "placeholder for Inner Enclosure";
+                return "The inner enclosure houses all of the critical components, apart from the balloons and the funnels. This is equivalent to the box seen in the prototype design.";
 
             case "Inner Mechanisms":
             case "Inner Mechanisms.001":
@@ -114,7 +114,7 @@ public class Infomation : MonoBehaviour{
             case "Inner Mechanisms.011":
             case "Inner Mechanisms.012":
             case "Inner Mechanisms.013":
-                return "placeholder text for Inner Mechanisms";
+                return "The inner mechanisms include the critical mechanical and electronic components. This includes the valves, the sensors, the battery, and the microcontroller.";
 
             case "BalloonTop":
             case "BalloonTop.001":
@@ -144,7 +144,7 @@ public class Infomation : MonoBehaviour{
             case "BalloonBottom.011":
             case "BalloonBottom.012":
             case "BalloonBottom.013":
-                return "placeholder text for Balloons as storage";
+                return "The balloons contain the air that is supplied by the compressor and used in the extraction of the CO2. When in the storage rack, the bottom balloon will contain liquid CO2.";
 
             case "Funnels":
             case "Funnels.001":
@@ -160,56 +160,57 @@ public class Infomation : MonoBehaviour{
             case "Funnels.011":
             case "Funnels.012":
             case "Funnels.013":
-                return "placeholder text for Funnels";
+                return "The funnels are used to connect the compressible balloons to the inner mechanisms. The shape was chosen to maximize the efficiency of fluid flow between the balloons.";
 
             // non gondola components 
         case "Driving Rack Bottom":
-            return "placeholder for Bottom Platform";
-        
+            return "The bottom driving rack is designed to collect and release the gondolas from the ocean floor. It also triggers the inner mechanism in each balloon to open the main valve.";
+        // combined non-powered bullwheels as functionality is the same
+        case "bullwheel 2":
+        case "bullwheel 3": 
         case "bullwheel 2 Bottom":
-            return "placeholder for bullwheel 2 Bottom";
-        
-        case "bullwheel 3 Bottom":
-            return "placeholder for bullwheel 3 Bottom";
-        
+        case "bullwheel 3 Bottom":        
         case "bullwheel Driver Bottom":
-            return "placeholder for bullwheel Driver Bottom";
-        
-        case "Storage Rack Bottom":
-            return "placeholder for Storage Rack Bottom";
-        
+            return "The bullwheel allows for the cable to change direction while adding minimal resistance, like a pulley system.";
+
         case "C02 Storage":
-            return "placeholder for CO2 Storage";
+            return "The CO2 storage tanks are designed to contain the captured CO2 when the gondolas return to the surface. Furthermore, they can be exchanged for empty tanks when they are full.";
         
         case "Compressor":
-            return "placeholder for Compressor";
+            return "The compressor is used to compress air into each gondola before they are submerged. A Direct Air Capture (DAC) device may be used to capture CO2 more efficiently.";
         
         case "Motor":
-            return "placeholder for Motor";
+            return "The motor powers the driver bullwheel, rotating it clockwise or counterclockwise depending on where the gondolas are going.";
         
         case "Wiring":
-            return "placeholder for Wiring";
+            return "The wiring provides power from the windmill to the motor, compressor, and to the main electrical grid.";
         
         case "Driving Rack":
-            return "placeholder for Driving Rack";
-        
-        case "bullwheel 2":
-            return "placeholder for bullwheel 2";
-        
-        case "bullwheel 3":
-            return "placeholder for bullwheel 3";
+            return "The driving rack is designed to collect and release the gondolas from the surface platform. It slows down to allow air into the gondolas on the way down, and CO2 out on the way up.";
         
         case "bullwheel Driver":
-            return "placeholder for bullwheel Driver";
+            return "The bullwheel driver is connected to the motor and the cable. It spins clockwise or counterclockwise, pulling on the cable to ultimately move the gondolas.";
         
         case "Cable":
-            return "placeholder for Cable";
+            return "The cable holds all of the gondolas while being pulled into or out of the ocean. With woven metal fibers, it functions like a chairlift cable.";
         
         case "Storage Rack":
-            return "placeholder for Storage Rack";
+            return "The storage rack holds the gondolas in place while grid power demand remains stable. If an excess of power is generated, the gondolas are submerged.";
+        case "Storage Rack Bottom":
+            return "The storage rack holds the gondolas in place while grid power demand remains stable. If more power is needed, the gondolas are released up to the serface.";
         
 
             // for the P use Case infomation 
+        case "pUseCase":
+            return "The Deep Sea CO2 Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant.";
+
+        // for the P use Case infomation 
+        case "Weight":
+            return "The weight is used to counteract the buoyant force produced by the CO2 Separator.";
+
+        // for the P use Case infomation 
+        case "pully":
+            return "The pulley system is designed to naturally let the weighted CO2 Separator sink to a specific depth and retrived from the ocean with an external force.";
 
             default:
                 return "";
