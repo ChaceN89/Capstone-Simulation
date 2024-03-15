@@ -13396,8 +13396,8 @@ MonoBehaviour:
     target: {fileID: 49565166}
   pUseCaseParams:
     name: pUseCase
-    camHeight: 16
-    distToCam: 16
+    camHeight: 6
+    distToCam: 4
     canvas: {fileID: 1114368550}
     target: {fileID: 1483337684}
   gondolaParams:
