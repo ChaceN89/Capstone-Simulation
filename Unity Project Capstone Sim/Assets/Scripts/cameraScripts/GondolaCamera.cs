@@ -25,6 +25,10 @@ public class GondolaCamera : MonoBehaviour {
         targetName = "OffShorePlatform";
     }
 
+    public void SetSnap(string newSnap){
+        targetName = newSnap;
+    }
+
     // main update camera logic
     void LateUpdate() {
         // check for a double mouse click on a component and set the target

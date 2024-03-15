@@ -27,6 +27,10 @@ public class GondolaBackend : MonoBehaviour {
         gondolaCamera.ResetSnap();
     }
 
+    public void SetSnap(string newSnap) {
+        gondolaCamera.SetSnap(newSnap);
+    }
+
     public void PlayGondola() {
         animator.SetTrigger("PlayAllGondolas");
     }
