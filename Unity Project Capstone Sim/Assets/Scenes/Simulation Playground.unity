@@ -9669,8 +9669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451230c6d3fc845fc833d02579104d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minZoom: 2
-  maxZoom: 16
+  minZoom: 1
+  maxZoom: 4
 --- !u!114 &961739756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9683,7 +9683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fae59db84e24916b9dbe2bd871d0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minZoom: 10
+  minZoom: 14
   maxZoom: 100
 --- !u!114 &961739757
 MonoBehaviour:
@@ -13384,8 +13384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa18857836c84955b25dbdd6477b0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 3
-  moveSpeed: 80
+  rotationSpeed: 5
+  moveSpeed: 220
   mainCameraTransform: {fileID: 961739753}
   activeScenario: none
   pDesignParams:
@@ -15719,8 +15719,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507d1ab6ca93d4ecaa545db9de0d6d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMaterial: {fileID: 0}
-  popupPrefab: {fileID: 0}
+  outlineMaterial: {fileID: 2100000, guid: 86f17762325554bdca6cf228d6b74949, type: 2}
+  popupPrefab: {fileID: 225598254819666735, guid: fd27af5fef7434a7797871e1355d6839,
+    type: 3}
 --- !u!65 &1780334363
 BoxCollider:
   m_ObjectHideFlags: 0
