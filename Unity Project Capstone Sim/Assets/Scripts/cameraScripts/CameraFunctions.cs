@@ -4,12 +4,11 @@ using UnityEngine;
 // this class contains a series of functions that move the camera that can be called by various scritps
 
 public class CameraFunctions : MonoBehaviour {
-    
+
     // camera movement varibales
     public float rotationSpeed = 5f; // the rotation speed of the camera 
     public float sensitivity = 4f; // Sensitivity of the mouse movement
     public float zoomSpeed = 2.0f; // Zoom speed of the camera
-
 
 
     // for determining if a double click takes place
@@ -18,39 +17,25 @@ public class CameraFunctions : MonoBehaviour {
     private readonly float doubleClickThreshold = 0.3f; // Adjust as needed
 
     // for position of the camera 
-    private Vector3 previousPosition; // the previous position for using the mouse
-
-
+    private Vector3 previousPosition;
+    private Vector3 currentRotation;
 
     // to move the camera in and out and around
-    public void MoveCamera(string targetName, float minZoom = 2.0f, float maxZoom = 16.0f){
+    public void MoveCamera(string targetName, float minZoom = 2.0f, float maxZoom = 16.0f) {
         // Check if the object tag exists and it it does
         if (targetName != null) {
-            // get the game object related to the current tag
-            GameObject targetObject = GameObject.Find(targetName);
-
-            // get the render for the object and use that 
-            // Renderer targetRenderer = targetObject.GetComponent<Renderer>();
-            // Vector3 targetPosition = targetRenderer.bounds.center;;
-            
-            // get the target position 
-            Vector3 targetPosition = targetObject.transform.position;
-  
-            // move around the object 
-            MoveCameraAroundObject(targetPosition);
-
-            // zoom into the object 
-            ZoomCamera(targetPosition, minZoom, maxZoom);
-
-        }else{
+            GameObject targetObject = GameObject.Find(targetName);// get the game object related to the current tag
+            Vector3 targetPosition = targetObject.transform.position;// get the target position 
+            MoveCameraAroundObject(targetPosition);// move around the object 
+            ZoomCamera(targetPosition, minZoom, maxZoom);// zoom into the object 
+        }
+        else {
             Debug.Log("No valid Object name set for Camera.");
-        }  
+        }
     }
 
     // to rotate the camera around on object when the mouse is cliked
-   private void MoveCameraAroundObject(Vector3 targetPosition){
-
-        // rotate and zoom around the object 
+    private void MoveCameraAroundObject(Vector3 targetPosition) {
         if (Input.GetMouseButtonDown(0)) {
             previousPosition = Input.mousePosition;
         }
@@ -60,21 +45,24 @@ public class CameraFunctions : MonoBehaviour {
             previousPosition = Input.mousePosition;
 
             // Calculate the rotation angles based on mouse movement
-            float angleY = delta.x * sensitivity * Time.deltaTime * rotationSpeed;
-            float angleX = -delta.y * sensitivity * Time.deltaTime * rotationSpeed;
+            float angleY = delta.x * sensitivity * rotationSpeed * 0.1f;
+            float angleX = -delta.y * sensitivity * rotationSpeed * 0.1f;
 
-            // Rotate the camera around the target on both the Y and X axes
+            // Accumulate rotation angles
+            currentRotation.x += angleX;
+            currentRotation.y += angleY;
+
+            // Apply rotation gradually
             transform.RotateAround(targetPosition, Vector3.up, angleY);
             transform.RotateAround(targetPosition, transform.right, angleX);
 
             // Keep looking at the target
             transform.LookAt(targetPosition);
         }
-
     }
 
     // /for zooming in a and out of the object 
-    private void ZoomCamera(Vector3 targetPosition, float minZoom, float maxZoom){
+    private void ZoomCamera(Vector3 targetPosition, float minZoom, float maxZoom) {
         // Zooming using scroll wheel
         float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
         Vector3 currentPosition = transform.position;
@@ -88,6 +76,9 @@ public class CameraFunctions : MonoBehaviour {
     }
 
 
+    /* -----------------------------------------------------------------------
+        Function for double clicking  
+    */
     // checking for a double click to change the target name
     public string CheckMouseClick(string targetName) {
         // check if double click takes place and then set the new target name if it is
@@ -96,11 +87,13 @@ public class CameraFunctions : MonoBehaviour {
                 // Double click detected
                 targetName = OnDoubleClick(targetName);
                 isClicked = false; // Reset flag
-            } else {
+            }
+            else {
                 isClicked = true;
                 doubleClickTimer = Time.time;
             }
-        } else if (isClicked && Time.time - doubleClickTimer >= doubleClickThreshold) {
+        }
+        else if (isClicked && Time.time - doubleClickTimer >= doubleClickThreshold) {
             // If no double click occurred within the threshold, reset the flag
             isClicked = false;
         }
@@ -120,11 +113,7 @@ public class CameraFunctions : MonoBehaviour {
 
             targetName = hit.transform.name;
         }
-        return  targetName;
-        
-        
+        return targetName;
     }
-
-
 
 }
