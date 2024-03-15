@@ -2911,7 +2911,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9a9fc41db963440cb9ec5042425f6b9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 432525730}
+      addedObject: {fileID: 432525733}
   m_SourcePrefab: {fileID: 100100000, guid: b9a9fc41db963440cb9ec5042425f6b9, type: 3}
 --- !u!4 &432525729 stripped
 Transform:
@@ -2919,21 +2919,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 432525728}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &432525730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65931556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507d1ab6ca93d4ecaa545db9de0d6d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMaterial: {fileID: 2100000, guid: 86f17762325554bdca6cf228d6b74949, type: 2}
-  popupPrefab: {fileID: 225598254819666735, guid: fd27af5fef7434a7797871e1355d6839,
-    type: 3}
 --- !u!65 &432525731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2976,6 +2961,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &432525733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65931556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55e62103e0364842a7c1511faa89111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: 86f17762325554bdca6cf228d6b74949, type: 2}
+  popupPrefab: {fileID: 225598254819666735, guid: fd27af5fef7434a7797871e1355d6839,
+    type: 3}
 --- !u!1 &443945089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4199466438883752504, guid: 79372ee9315c645ec8711b05c9cae073,

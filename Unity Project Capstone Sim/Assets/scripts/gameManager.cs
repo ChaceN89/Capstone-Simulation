@@ -144,10 +144,8 @@ public class GameManager : MonoBehaviour {
         SetCanvasEnabled(pUseCaseParams.canvas, false);
     }
 
-
     // makes cure the camerCircle Script it set 
     private void Start() {
-
         // find all the cameras
         pDesignCamera = FindObjectOfType<PDesignCamera>();
         pUseCaseCamera = FindObjectOfType<PUseCaseCamera>();
@@ -158,10 +156,10 @@ public class GameManager : MonoBehaviour {
         pDesignBackend = FindObjectOfType<PDesignBackend>();
         pUseCaseBackend = FindObjectOfType<PUseCaseBackend>();
 
-
+        // turn off the camera initially and turn off the canvases 
         DisableCameras();
         DeactivateAllCanvases();
-        ResetBackendScripts();
+        // ResetBackendScripts();
     }
 
     // main update fucntion to see if the camera is updated and if not change the camera behaiours
