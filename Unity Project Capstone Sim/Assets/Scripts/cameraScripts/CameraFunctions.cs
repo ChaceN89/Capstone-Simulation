@@ -21,13 +21,20 @@ public class CameraFunctions : MonoBehaviour {
     private Vector3 currentRotation;
 
     // to move the camera in and out and around
-    public void MoveCamera(string targetName, float minZoom = 2.0f, float maxZoom = 16.0f) {
+    public void MoveCamera(string targetName, float minZoom = 2.0f, float maxZoom = 16.0f, bool renderPos = false) {
         // Check if the object tag exists and it it does
         if (targetName != null) {
             GameObject targetObject = GameObject.Find(targetName);// get the game object related to the current tag
             Vector3 targetPosition = targetObject.transform.position;// get the target position 
+            if (renderPos){
+                // get the render for the object and use that instead
+                Renderer targetRenderer = targetObject.GetComponent<Renderer>();
+                targetPosition = targetRenderer.bounds.center;
+            }
+            
             MoveCameraAroundObject(targetPosition);// move around the object 
             ZoomCamera(targetPosition, minZoom, maxZoom);// zoom into the object 
+
         }
         else {
             Debug.Log("No valid Object name set for Camera.");

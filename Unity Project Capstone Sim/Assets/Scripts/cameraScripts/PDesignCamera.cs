@@ -26,11 +26,11 @@ public class PDesignCamera : MonoBehaviour {
     }
 
     // main update camera logic
-    void Update() {
+    void LateUpdate() {
         // check for a double mouse click on a component and set the target
         targetName = cameraFunctions.CheckMouseClick(targetName);
 
         // check for inputs to move the camera around the target
-        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom);
+        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom, renderPos:true);
     }
 }

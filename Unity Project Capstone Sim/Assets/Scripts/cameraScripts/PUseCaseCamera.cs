@@ -26,7 +26,7 @@ public class PUseCaseCamera : MonoBehaviour {
     }
 
     // main update camera logic
-    void Update() {
+    void LateUpdate() {
         // check for a double mouse click on a component and set the target
         targetName = cameraFunctions.CheckMouseClick(targetName);
 
