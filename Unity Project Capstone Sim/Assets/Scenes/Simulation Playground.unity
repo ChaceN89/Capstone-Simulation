@@ -2347,6 +2347,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.048077676, y: 0.048077635, z: 0.035860065}
   m_Center: {x: -0.0000068303198, y: 0.0000087004155, z: -0.01185118}
+--- !u!1 &244402208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1309266152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &244402209 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1309266152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &244402210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244402208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e78eed3f098401584d0ad091d20d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depthTransform: {fileID: 432525729}
 --- !u!1001 &247332142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18292,6 +18317,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1222627994}
+  - {fileID: 244402209}
   - {fileID: 149618437}
   - {fileID: 1962602038}
   - {fileID: 1671812113}
@@ -20581,6 +20607,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f525fd1b38a43bcafd2bc6945fb6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1309266152
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1114368547}
+    m_Modifications:
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_text
+      value: At a specified depth, 500 m in this case, the internal valve will close
+        to ensure the C02 which has been liquified due to the pressure will not escape
+        to the top balloon when the device is brough back to the surface.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 1.2394409
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 0.97506714
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Name
+      value: Bottom Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.76000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.8182473
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.7387501
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.80869573
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 183.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 63.8253
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -409.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -99.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 244402210}
+  m_SourcePrefab: {fileID: 100100000, guid: 19abd344ea3c741b1b35f5ea7036c7f3, type: 3}
 --- !u!1 &1310289207
 GameObject:
   m_ObjectHideFlags: 0
