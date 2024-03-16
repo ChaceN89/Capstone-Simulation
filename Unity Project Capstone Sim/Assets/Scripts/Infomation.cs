@@ -252,6 +252,11 @@ public class Infomation : MonoBehaviour{
         case "Storage Rack Bottom":
             return "The storage rack holds the gondolas in place while grid power demand remains stable. If more power is needed, the gondolas are released up to the serface.";
         
+        case "windTurbine":
+            return "The wind turbine is the primary source of energy and is used to drive the gondola down to the bottom platform when energy is high.";
+
+
+
         // for the P use Case infomation 
         case "PUseCase":
             return "The Deep Sea CO2 Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant.";

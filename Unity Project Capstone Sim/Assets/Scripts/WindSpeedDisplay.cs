@@ -11,21 +11,23 @@ public class WindSpeedDisplay : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        string windSpeedText = "Wind Speed:\n";
+        string windSpeedText = "Wind Speed: ";
 
         // Assuming that a higher speed value means higher wind speed
-        if (windmillAnimator.speed > 1) {
+        if (windmillAnimator.speed > 1.4) {
             // High wind speed
-            windSpeedText += "High";
+            windSpeedText += "High\nHigh Energy Output \n-storing excess energy.";
         }
-        else if (windmillAnimator.speed > 0.3) {
+        else if (windmillAnimator.speed > 0.4) {
             // Normal wind speed
-            windSpeedText += "Normal";
+            windSpeedText += "Normal\nNormal Energy Output.";
         }
         else {
             // Low wind speed
-            windSpeedText += "Low";
+            windSpeedText += "Low\nLow Energy Output \n-releasing excess energy.";
         }
+
+
 
         // Update the text of the TextMeshProUGUI component
         textMeshPro.text = windSpeedText;
