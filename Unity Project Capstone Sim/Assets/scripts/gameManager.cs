@@ -10,6 +10,7 @@ it will also active UI and camera controllers for each of scenerios
 */
 
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour {
 
     public float fastSpeedDistance = 40.0f;
 
+    public TextMeshProUGUI intoText;
 
     // Camera height and distances to object for each scenerio
     public ScenerioParams pDesignParams = new() {name = "pDesign", camHeight = 4f, distToCam = 5f };
@@ -129,12 +131,19 @@ public class GameManager : MonoBehaviour {
                 ResetBackendScripts();
             }
 
+
+
         // the camera is updating and everything should be reset  
         }else {
             DisableCameras();
             DeactivateAllCanvases();
             ResetBackendScripts();
+            if (activeScenario != "none"){
+                intoText.enabled = false;
+            }
         }
+
+        
     }
 
     // disbles all cameras
