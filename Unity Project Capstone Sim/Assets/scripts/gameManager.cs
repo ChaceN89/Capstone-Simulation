@@ -9,7 +9,9 @@ it will also active UI and camera controllers for each of scenerios
 
 */
 
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour {
 
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour {
     public float moveSpeed = 5f; // speed of the camera
     public Transform mainCameraTransform; // main camera transform 
     public string activeScenario = "none";  // The current scenerio 
+
+    public float fastSpeedDistance = 40.0f;
 
 
     // Camera height and distances to object for each scenerio
@@ -85,7 +89,16 @@ public class GameManager : MonoBehaviour {
     // updates the camera position over time and turns off the updating bool when the camera is finsihed moving
     private void UpdateCameraTransform() {
         // Rotate and move the camera towards the target rotation
-        mainCameraTransform.SetPositionAndRotation(Vector3.MoveTowards(mainCameraTransform.position, targetPosition, Time.deltaTime * moveSpeed), Quaternion.Slerp(mainCameraTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed));
+        float distanceToTarget = Vector3.Distance(mainCameraTransform.position, targetPosition);
+        float adjustedMoveSpeed = moveSpeed;
+        if (distanceToTarget>fastSpeedDistance){
+            adjustedMoveSpeed *= 10;
+        }
+
+        mainCameraTransform.SetPositionAndRotation(
+            Vector3.MoveTowards(mainCameraTransform.position, targetPosition, Time.deltaTime * adjustedMoveSpeed), 
+            Quaternion.Slerp(mainCameraTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed));
+
 
         // Check if the camera has reached the target position and rotation
         if (Vector3.Distance(mainCameraTransform.position, targetPosition) < 0.1f && Quaternion.Angle(mainCameraTransform.rotation, targetRotation) < 1.0f) {
@@ -159,7 +172,6 @@ public class GameManager : MonoBehaviour {
         // turn off the camera initially and turn off the canvases 
         DisableCameras();
         DeactivateAllCanvases();
-        // ResetBackendScripts();
     }
 
     // main update fucntion to see if the camera is updated and if not change the camera behaiours

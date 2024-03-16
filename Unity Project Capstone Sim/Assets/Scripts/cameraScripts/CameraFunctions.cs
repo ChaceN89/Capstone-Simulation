@@ -28,8 +28,11 @@ public class CameraFunctions : MonoBehaviour {
             Vector3 targetPosition = targetObject.transform.position;// get the target position 
             if (renderPos){
                 // get the render for the object and use that instead
+                try{
+
                 Renderer targetRenderer = targetObject.GetComponent<Renderer>();
                 targetPosition = targetRenderer.bounds.center;
+                }catch{}
             }
             
             MoveCameraAroundObject(targetPosition);// move around the object 

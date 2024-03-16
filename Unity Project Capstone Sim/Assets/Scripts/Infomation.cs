@@ -252,23 +252,21 @@ public class Infomation : MonoBehaviour{
         case "Storage Rack Bottom":
             return "The storage rack holds the gondolas in place while grid power demand remains stable. If more power is needed, the gondolas are released up to the serface.";
         
-
-            // for the P use Case infomation 
+        // for the P use Case infomation 
         case "PUseCase":
             return "The Deep Sea CO2 Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant.";
 
-        // for the P use Case infomation 
         case "Weight":
             return "The weight is used to counteract the buoyant force produced by the CO2 Separator.";
 
-        // for the P use Case infomation 
-        case "pully":
+        case "Pully":
             return "The pulley system is designed to naturally let the weighted CO2 Separator sink to a specific depth and retrived from the ocean with an external force.";
+        case "winch":
+            return "The winch is mean to raise and lower the device.";
 
-            default:
-                return "";
+        default:
+            return "";
 
         }
     }
-
 }

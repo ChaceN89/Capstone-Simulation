@@ -24,18 +24,13 @@ public class GondolaBackend : MonoBehaviour {
     }
     public void Update() {
         backendFunctions.CheckVisibility(toggleList);
-
         camCanvas.enabled=camToggle.isOn;
-        
     }
 
     public void Reset() {
-        Debug.Log("Reset Gondola");
         gondolaCamera.ResetSnap();
-        camToggle.isOn = false;
-        
+        camToggle.isOn = false;        
     }
-
 
     public void SetSnap(string newSnap) {
         gondolaCamera.SetSnap(newSnap);

@@ -35,6 +35,6 @@ public class GondolaCamera : MonoBehaviour {
         targetName = cameraFunctions.CheckMouseClick(targetName);
 
         // check for inputs to move the camera around the target
-        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom);
+        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom,renderPos:true);
     }
 }
