@@ -267,7 +267,7 @@ public class Infomation : MonoBehaviour{
         case "Pully":
             return "The pulley system is designed to naturally let the weighted CO2 Separator sink to a specific depth and retrived from the ocean with an external force.";
         case "winch":
-            return "The winch is mean to raise and lower the device.";
+            return "The winch is used to raise and lower the device.";
 
         default:
             return "";
