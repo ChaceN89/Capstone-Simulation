@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class UseCaseDisplay : MonoBehaviour {
+    const float volume = 3843.968f; // using cone formula 1/3*pi*r^2*h, r = 4", h = 14". converted from cubic inches to ml
     public Transform depthTransform; // Reference to the transform whose depth will be used
 
     private TextMeshProUGUI textMeshPro;
@@ -73,12 +74,23 @@ public class UseCaseDisplay : MonoBehaviour {
     }
 
     float GetCO2Top() {
-        // Implement your function to get CO2 in the top balloon here
-        return 0.0f; // Example value, replace with your logic
+        // formula source: https://calculator.academy/co2-ppm-calculator/#:~:text=To%20calculate%20the%20CO2%20PPM%2C%20divide%20the%20volume%20of%20CO2,ratio%20into%20parts%20per%20million.
+        float depth = GetDepth();
+        if(depth < 432){
+            return 0.0004f * volume / volume * 1000000f; // (co2 volume / air volume) * 1,000,000 for ppm
+        }
+        else{
+            return 432f / depth * 0.0004f * volume / volume * 1000000f; // at max depth, ppm will be 85% of original
+        }
     }
 
     float GetCO2Bottom() {
-        // Implement your function to get CO2 in the bottom balloon here
-        return 0.0f; // Example value, replace with your logic
+        float depth = GetDepth();
+        if(depth < 432){
+            return 0.0004f * volume / volume * 1000000f; // (co2 volume / air volume) * 1,000,000 for ppm
+        }
+        else{
+            return (2 - (432f / depth)) * 0.0004f * volume / volume * 1000000f; // at max depth, ppm will be 115% of original
+        }
     }
 }
