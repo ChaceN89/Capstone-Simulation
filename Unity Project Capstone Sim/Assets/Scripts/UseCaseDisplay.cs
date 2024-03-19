@@ -9,17 +9,26 @@ public class UseCaseDisplay : MonoBehaviour {
 
     private TextMeshProUGUI textMeshPro;
 
+    private float previousY;
+
     void Start() {
         // Get the TextMeshPro component attached to this GameObject
         textMeshPro = GetComponent<TextMeshProUGUI>();
 
         // Update the text initially
         UpdateText();
+
+        // get the initial previous Y
+        previousY = depthTransform.position.y;
     }
 
     void Update() {
         // Update the text every frame
         UpdateText();
+        if (depthTransform.position.y<3){ // assuming about a m off the water
+
+            previousY = depthTransform.position.y;
+        }
     }
 
     void UpdateText() {
@@ -76,6 +85,13 @@ public class UseCaseDisplay : MonoBehaviour {
     float GetCO2Top() {
         // formula source: https://calculator.academy/co2-ppm-calculator/#:~:text=To%20calculate%20the%20CO2%20PPM%2C%20divide%20the%20volume%20of%20CO2,ratio%20into%20parts%20per%20million.
         float depth = GetDepth();
+       
+        float deltaY = depthTransform.position.y - previousY;
+
+        if (deltaY>0){
+            return 341.50f;
+        }
+        
         if(depth < 432){
             return 0.0004f * volume / volume * 1000000f; // (co2 volume / air volume) * 1,000,000 for ppm
         }
@@ -86,6 +102,12 @@ public class UseCaseDisplay : MonoBehaviour {
 
     float GetCO2Bottom() {
         float depth = GetDepth();
+        float deltaY = depthTransform.position.y - previousY;
+
+
+        if (deltaY>0){
+            return 458.50f;
+        }
         if(depth < 432){
             return 0.0004f * volume / volume * 1000000f; // (co2 volume / air volume) * 1,000,000 for ppm
         }
