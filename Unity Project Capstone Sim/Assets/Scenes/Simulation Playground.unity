@@ -7028,17 +7028,17 @@ PrefabInstance:
     - target: {fileID: -1910979045831111194, guid: 79372ee9315c645ec8711b05c9cae073,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 65.001724
+      value: -89.99999
       objectReference: {fileID: 0}
     - target: {fileID: -1910979045831111194, guid: 79372ee9315c645ec8711b05c9cae073,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -88.51567
+      value: -0.09725839
       objectReference: {fileID: 0}
     - target: {fileID: -1910979045831111194, guid: 79372ee9315c645ec8711b05c9cae073,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 85.566475
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1893652693040308760, guid: 79372ee9315c645ec8711b05c9cae073,
         type: 3}
@@ -14018,7 +14018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minZoom: 14
-  maxZoom: 120
+  maxZoom: 160
 --- !u!114 &961739757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16720,8 +16720,9 @@ PrefabInstance:
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_text
-      value: The prototype design is mean to be a mini version of the inner mechanisms
-        of each gondola. You can go to the prototype design to see more details.
+      value: The inner components of each gondola are comparable to the prototype
+        design. You can go to the prototype design to see more details on how they
+        work.
       objectReference: {fileID: 0}
     - target: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -16811,7 +16812,7 @@ PrefabInstance:
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.4
+      value: 1.4000015
       objectReference: {fileID: 0}
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}

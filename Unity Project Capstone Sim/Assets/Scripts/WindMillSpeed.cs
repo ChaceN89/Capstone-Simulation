@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WindMillSpeed : MonoBehaviour {
@@ -21,14 +19,23 @@ public class WindMillSpeed : MonoBehaviour {
             int layerIndex = gondolaAnimator.GetLayerIndex("Gondola 0");
             AnimatorStateInfo stateInfo = gondolaAnimator.GetCurrentAnimatorStateInfo(layerIndex);
 
-            if (stateInfo.IsName("Empty")) {
-                windmillAnimator.speed = 0.7f;
+
+            // normal speed sicne animations are at the end (ie not running)
+            if (stateInfo.IsName("Gondola Connection|Action") && stateInfo.normalizedTime >= 1f) {
+                windmillAnimator.speed = 0.6f;
             }
+            else if (stateInfo.IsName("Gondola Connection|Action 0 - reverse") && stateInfo.normalizedTime >= 1f) {
+                windmillAnimator.speed = 0.6f;
+            }
+
+            // storging energy
             else if (stateInfo.IsName("Gondola Connection|Action")) {
-                windmillAnimator.speed = 2f;
+                windmillAnimator.speed = 2.4f;
             }
+
+            // releasing energy
             else if (stateInfo.IsName("Gondola Connection|Action 0 - reverse")) {
-                windmillAnimator.speed = 0.2f;
+                windmillAnimator.speed = 0.1f;
             }
         }
     }

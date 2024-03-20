@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,15 +14,15 @@ public class WindSpeedDisplay : MonoBehaviour {
         // Assuming that a higher speed value means higher wind speed
         if (windmillAnimator.speed > 1.4) {
             // High wind speed
-            windSpeedText += "High\n<b>High</b> Energy Output \n<i>Storing excess energy</i>";
+            windSpeedText += "High\nHigh Energy Output \n<i>Storing excess energy</i>";
         }
         else if (windmillAnimator.speed > 0.4) {
             // Normal wind speed
-            windSpeedText += "Normal\n<b>Normal </b>Energy Output";
+            windSpeedText += "Normal\nNormal Energy Output";
         }
         else {
             // Low wind speed
-            windSpeedText += "Low\n<b>Low</b> Energy Output\n<i>Releasing excess energy</i>";
+            windSpeedText += "Low\nLow Energy Output\n<i>Releasing excess energy</i>";
         }
 
 
