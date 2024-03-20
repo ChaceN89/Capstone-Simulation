@@ -60,9 +60,9 @@ public class Infomation : MonoBehaviour{
    public string GetPopupText(string objectName) {
         switch (objectName) {
             case "Box":
-                return "The box is used to contain and protect the various components. The design features rounded edges to reduce drag in the water. It contains 38 screws to hold the components in place, and is filled with mineral oil to help alleviate hydrostatic pressure.";
+                return "The box is used to contain and protect the various components. The design features rounded edges to reduce drag in the water and save space. It is 3D printed and coated in flex seal to create a water tight seal.";
             case "Lid":
-                return "The lid is used to access the components while sealing them off when in use. It features a waterproof gasket and four latches to secure the box and the components within.";
+                return "The lid is used to access the components while sealing them off when in use. It is pressed against a waterproof gasket using four latches to create a tight seal.";
             case "Ardunio":
                 return "The Arduino is a board-based microcontroller that serves as the brain for the system. It reads measurement data from the connected instruments, controls the solenoid based on this data, and records the data to the SD card.";
             case "Balloon Top":
@@ -70,7 +70,7 @@ public class Infomation : MonoBehaviour{
                 return "The balloons are used as a compressible canister for the CO<sub>2</sub>. With gravity and the balloon's unique design, compressed liquid CO<sub>2</sub> can flow from the top balloon to the bottom. Each balloon also has a clamp to keep it in place.";
             case "Funnel Top":
             case "Funnel Bottom":
-                return "The funnel assists with directing the flow of liquid CO<sub>2</sub> from the top balloon to the bottom. The top of the funnel is used to attach the balloon with the help of a clamp, while the bottom of the funnel attaches to the valve using a short rubber hose.";
+                return "The funnel directs the flow of liquid CO<sub>2</sub> from the top balloon to the bottom. The top of the funnel is used to attach the balloon with the help of a clamp, while the bottom of the funnel attaches to the valve using a short rubber hose.";
             case "Air Valve Top":
             case "Air Valve Bottom":
                 return "The air valve is used in conjunction with an air compressor to fill the balloons to the target pressure. They also allow for extraction of the separated gasses once the device has emerged from the water.";
@@ -259,7 +259,7 @@ public class Infomation : MonoBehaviour{
 
         // for the P use Case infomation 
         case "PUseCase":
-            return "The Deep Sea CO<sub>2</sub> Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant.";
+            return "The Deep Sea CO<sub>2</sub> Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant. See the Design tab for more infomation";
 
         case "Weight":
             return "The weight is used to counteract the buoyant force produced by the CO<sub>2</sub> Separator.";
