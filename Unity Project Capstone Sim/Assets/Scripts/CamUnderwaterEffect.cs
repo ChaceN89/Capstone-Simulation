@@ -16,14 +16,14 @@ public class CamUnderwaterEffect : MonoBehaviour {
             RenderSettings.skybox = aboveWaterSkybox;
 
             // Turn off fog
-            RenderSettings.fog = false;
+            // RenderSettings.fog = false;
         }
         else {
             // Underwater
 
             // Turn on fog with minimal density
-            RenderSettings.fog = true;
-            RenderSettings.fogDensity = minimalFogDensity; // Use a constant value for simplicity
+            // RenderSettings.fog = true;
+            // RenderSettings.fogDensity = minimalFogDensity; // Use a constant value for simplicity
 
             // Change the skybox to underwater
             RenderSettings.skybox = underwaterSkybox;
