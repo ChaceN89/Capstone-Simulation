@@ -67,16 +67,16 @@ public class Infomation : MonoBehaviour{
                 return "The Arduino is a board-based microcontroller that serves as the brain for the system. It reads measurement data from the connected instruments, controls the solenoid based on this data, and records the data to the SD card.";
             case "Balloon Top":
             case "Balloon Bottom":
-                return "The balloons are used as a compressible canister for the CO2. With gravity and the balloon's unique design, compressed liquid CO2 can flow from the top balloon to the bottom. Each balloon also has a clamp to keep it in place.";
+                return "The balloons are used as a compressible canister for the CO<sub>2</sub>. With gravity and the balloon's unique design, compressed liquid CO<sub>2</sub> can flow from the top balloon to the bottom. Each balloon also has a clamp to keep it in place.";
             case "Funnel Top":
             case "Funnel Bottom":
-                return "The funnel assists with directing the flow of liquid CO2 from the top balloon to the bottom. The top of the funnel is used to attach the balloon with the help of a clamp, while the bottom of the funnel attaches to the valve using a short rubber hose.";
+                return "The funnel assists with directing the flow of liquid CO<sub>2</sub> from the top balloon to the bottom. The top of the funnel is used to attach the balloon with the help of a clamp, while the bottom of the funnel attaches to the valve using a short rubber hose.";
             case "Air Valve Top":
             case "Air Valve Bottom":
                 return "The air valve is used in conjunction with an air compressor to fill the balloons to the target pressure. They also allow for extraction of the separated gasses once the device has emerged from the water.";
             case "C02 Sensors Top":
-            case "CO2 Sensor Bottom":
-                return "The CO2 Sensors are used to show the difference in parts per million (PPM) of carbon dioxide between the two balloons. They use non-dispersive infrared sensors to detect CO2 in the range of 0-50000 ppm.";
+            case "CO<sub>2</sub> Sensor Bottom":
+                return "The CO<sub>2</sub> Sensors are used to show the difference in parts per million (PPM) of carbon dioxide between the two balloons. They use non-dispersive infrared sensors to detect CO<sub>2</sub> in the range of 0-50000 ppm.";
             case "Battery case":
                 return "The battery case stores and protects the battery, allowing the battery to be mounted to the side of the box.";
             case "Battery":
@@ -101,7 +101,7 @@ public class Infomation : MonoBehaviour{
             case "Hose Fitting.001":
                 return "The hose fitting is used as an adapter between the rubber hose from the funnel to the air valve. It features a ribbed exterior to keep the hose from sliding off.";
             case "Valve":
-                return "The valve is used to control the airflow between the balloons. It remains closed until the device has reached the target depth, in which the Arduino tells the valve to open. After a set amount of time, the valve closes again, sealing the liquid CO2 in the bottom balloon.";
+                return "The valve is used to control the airflow between the balloons. It remains closed until the device has reached the target depth, in which the Arduino tells the valve to open. After a set amount of time, the valve closes again, sealing the liquid CO<sub>2</sub> in the bottom balloon.";
 
 
             // for the gondola infomation 
@@ -119,7 +119,7 @@ public class Infomation : MonoBehaviour{
             case "Gondola Connection.011":
             case "Gondola Connection.012":
             case "Gondola Connection.013":
-                return "The gondola is connected to the cable using a spring-loaded grip, in the same way that cable cars, chairlifts, and other gondolas are fastened. This allows for CO2 to be extracted from the returning gondola without disturbing the pace of the other gondolas.";
+                return "The gondola is connected to the cable using a spring-loaded grip, in the same way that cable cars, chairlifts, and other gondolas are fastened. This allows for CO<sub>2</sub> to be extracted from the returning gondola without disturbing the pace of the other gondolas.";
 
             case "Sherical Enclosure":
             case "Sherical Enclosure.001":
@@ -197,7 +197,7 @@ public class Infomation : MonoBehaviour{
             case "BalloonBottom.011":
             case "BalloonBottom.012":
             case "BalloonBottom.013":
-                return "The balloons contain the air that is supplied by the compressor and used in the extraction of the CO2. When in the storage rack, the bottom balloon will contain liquid CO2.";
+                return "The balloons contain the air that is supplied by the compressor and used in the extraction of the CO<sub>2</sub>. When in the storage rack, the bottom balloon will contain liquid CO<sub>2</sub>.";
 
             case "Funnels":
             case "Funnels.001":
@@ -227,10 +227,10 @@ public class Infomation : MonoBehaviour{
             return "The bullwheel allows for the cable to change direction while adding minimal resistance, like a pulley system.";
 
         case "C02 Storage":
-            return "The CO2 storage tanks are designed to contain the captured CO2 when the gondolas return to the surface. Furthermore, they can be exchanged for empty tanks when they are full.";
+            return "The CO<sub>2</sub> storage tanks are designed to contain the captured CO<sub>2</sub> when the gondolas return to the surface. Furthermore, they can be exchanged for empty tanks when they are full.";
         
         case "Compressor":
-            return "The compressor is used to compress air into each gondola before they are submerged. A Direct Air Capture (DAC) device may be used to capture CO2 more efficiently.";
+            return "The compressor is used to compress air into each gondola before they are submerged. A Direct Air Capture (DAC) device may be used to capture CO<sub>2</sub> more efficiently.";
         
         case "Motor":
             return "The motor powers the driver bullwheel, rotating it clockwise or counterclockwise depending on where the gondolas are going.";
@@ -239,7 +239,7 @@ public class Infomation : MonoBehaviour{
             return "The wiring provides power from the windmill to the motor, compressor, and to the main electrical grid.";
         
         case "Driving Rack":
-            return "The driving rack is designed to collect and release the gondolas from the surface platform. It slows down to allow air into the gondolas on the way down, and CO2 out on the way up.";
+            return "The driving rack is designed to collect and release the gondolas from the surface platform. It slows down to allow air into the gondolas on the way down, and CO<sub>2</sub> out on the way up.";
         
         case "bullwheel Driver":
             return "The bullwheel driver is connected to the motor and the cable. It spins clockwise or counterclockwise, pulling on the cable to ultimately move the gondolas.";
@@ -259,13 +259,13 @@ public class Infomation : MonoBehaviour{
 
         // for the P use Case infomation 
         case "PUseCase":
-            return "The Deep Sea CO2 Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant.";
+            return "The Deep Sea CO<sub>2</sub> Separator, as seen within the 'Prototype Design' tab. Due to the amount of compressed air within, it is naturally buoyant.";
 
         case "Weight":
-            return "The weight is used to counteract the buoyant force produced by the CO2 Separator.";
+            return "The weight is used to counteract the buoyant force produced by the CO<sub>2</sub> Separator.";
 
         case "Pully":
-            return "The pulley system is designed to naturally let the weighted CO2 Separator sink to a specific depth and retrived from the ocean with an external force.";
+            return "The pulley system is designed to naturally let the weighted CO<sub>2</sub> Separator sink to a specific depth and retrived from the ocean with an external force.";
         case "winch":
             return "The winch is used to raise and lower the device.";
 
