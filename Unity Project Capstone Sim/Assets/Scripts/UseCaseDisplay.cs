@@ -42,10 +42,10 @@ public class UseCaseDisplay : MonoBehaviour {
             float co2Bottom = GetCO2Bottom();
 
             // Update the text with obtained values
-            textMeshPro.text = "Depth: " + depth.ToString("F2") + " m \n" +
-                               "Pressure: " + pressure.ToString("F2") + " atm\n" +
-                               "CO<sub>2</sub> in the Top balloon: " + co2Top.ToString("F2") + " ppm\n" +
-                               "CO<sub>2</sub> in the Bottom balloon: " + co2Bottom.ToString("F2") + " ppm";
+            textMeshPro.text = "<b>Depth</b>: " + depth.ToString("F2") + " m \n" +
+                               "<b>Pressure</b>: " + pressure.ToString("F2") + " atm\n" +
+                               "<b>CO<sub>2</sub> in the Top balloon</b>: \n\t\t\t" + co2Top.ToString("F2") + " ppm\n" +
+                               "<b>CO<sub>2</sub> in the Bottom balloon</b>: \n\t\t\t" + co2Bottom.ToString("F2") + " ppm";
         }
     }
 

@@ -1252,6 +1252,141 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.04384805, y: 0.020240664, z: 0.026263786}
   m_Center: {x: -0.0004943524, y: 0.007470147, z: 0.00029758833}
+--- !u!1001 &188064443
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1114368547}
+    m_Modifications:
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_text
+      value: "-Hover over a component to learn more. \n-Double click on a component
+        to snap to it\n-Drag the mouse to rotate the view.\n-Press buttons to visualize
+        the use case.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Name
+      value: Help text (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.76000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.8182473
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.7387501
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.80869573
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 183.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 47.6926
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -54
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 46.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19abd344ea3c741b1b35f5ea7036c7f3, type: 3}
 --- !u!1 &191726546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79372ee9315c645ec8711b05c9cae073,
@@ -2321,6 +2456,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.03564444, y: 0.03566011, z: 0.011210178}
   m_Center: {x: 0.000010728469, y: -0.0000001233763, z: 0.030039946}
+--- !u!224 &281219909 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 188064443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &283328746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6150841025312691045, guid: 79372ee9315c645ec8711b05c9cae073,
@@ -2880,15 +3021,16 @@ PrefabInstance:
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_text
-      value: 'The system utilizes the buoyancy of air within each gondola for energy
-        storage. When excess energy is generated, gondolas are submerged underwater
+      value: 'The system utilizes the buoyancy of air within each gondola for <b>energy
+        storage</b>. When excess energy is generated, gondolas are submerged underwater
         to store it. Later, when additional energy is needed, the gondolas rise to
         the surface, converting stored buoyant energy back into usable energy.
 
 
         Additionally,
-        at high-pressure depths underwater, CO<sub>2</sub> is separated as it liquefies.
-        This separated CO<sub>2</sub> can be extracted when the gondola resurfaces.'
+        at high-pressure depths underwater, <b>CO<sub>2</sub> is separated</b> as
+        it liquefies. This separated CO<sub>2</sub> can be extracted when the gondola
+        resurfaces.'
       objectReference: {fileID: 0}
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -5944,6 +6086,7 @@ RectTransform:
   - {fileID: 665735208}
   - {fileID: 679368671}
   - {fileID: 1537805307}
+  - {fileID: 1040851315}
   m_Father: {fileID: 940746779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11890,7 +12033,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: df79702f3669f4b65b1aec22816e7810,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 90
+      value: 90.15301
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df79702f3669f4b65b1aec22816e7810,
         type: 3}
@@ -11910,7 +12053,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: df79702f3669f4b65b1aec22816e7810,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.54
+      value: 1.5389
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df79702f3669f4b65b1aec22816e7810,
         type: 3}
@@ -14786,6 +14929,147 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6e662101c18746bb8433d0b91db22c8, type: 3}
+--- !u!1001 &1040851314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 560358368}
+    m_Modifications:
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_text
+      value: "-Hover over a component to learn more. \n-Double click on a component
+        to snap to it\n-Drag the mouse to rotate the view.\n-Press buttons for alternate
+        model views."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Name
+      value: Help text (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.76000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.8182473
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.7387501
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.80869573
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 183.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 47.6926
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -53.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 46.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19abd344ea3c741b1b35f5ea7036c7f3, type: 3}
+--- !u!224 &1040851315 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1040851314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043513799
 GameObject:
   m_ObjectHideFlags: 0
@@ -15549,6 +15833,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1222627994}
+  - {fileID: 281219909}
   - {fileID: 244402209}
   - {fileID: 149618437}
   - {fileID: 1962602038}
@@ -16156,8 +16441,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "\n-Hover over a component to learn more. \n-Double click on a component
-        to snap to it\n-Drag the mouse to rotate the view.\n-Press the buttons to
-        see the use case."
+        to snap to it\n-Drag the mouse to rotate the view.\n-Press buttons to explore
+        the use case."
       objectReference: {fileID: 0}
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -16395,11 +16680,8 @@ PrefabInstance:
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_text
-      value: 'The prototype design is mean to be a mini version of the inner mechanisms
-        of each gondola. It goal is to test the idea presented in the overall system
-        in a simple controller enviroment.
-
-'
+      value: The prototype design is mean to be a mini version of the inner mechanisms
+        of each gondola. You can go to the prototype design to see more details.
       objectReference: {fileID: 0}
     - target: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -16694,13 +16976,24 @@ PrefabInstance:
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_text
-      value: "The Prototype Use Case exhibits how the Prototype Design would function
-        in a deep ocean testing environment. Using the cable and winch, the device
-        is submerged into the ocean and retrieved, all while displaying the expected
-        difference in CO<sub>2</sub> parts per million between the two balloons.\n\n-Hover
-        over a component to learn more. \n-Double click on a component to snap to
-        it\n-Drag the mouse to rotate the view.\n-Press the buttons to visualize
-        the use case.\n"
+      value: "In the Prototype Use Case, the primary objective is to demonstrate
+        the <b>separation of CO<sub>2</sub></b> from the air. This is a bonus goal
+        of the overall system. \n\nUtilizing a cable and winch mechanism, the device
+        is submerged in the ocean where the pressure liquefies CO<sub>2</sub>. Subsequently,
+        a valve is closed to separate the chambers, and the device is brought back
+        to the surface.\n\nThe main purpose of this prototype is to showcase the
+        <b>feasibility of CO<sub>2</sub> separation</b>. For further details on its
+        operation and design, please refer to the prototype design tab.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -17234,12 +17527,12 @@ PrefabInstance:
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -473.41852
+      value: -463
       objectReference: {fileID: 0}
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 67
+      value: 39.4
       objectReference: {fileID: 0}
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -17769,10 +18062,14 @@ PrefabInstance:
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_text
-      value: At a specified depth, 500 m in this case, the internal valve will close
-        to ensure the C0<sub>2</sub> which has been liquified due to the pressure
-        will not escape to the top balloon when the device is brough back to the
-        surface.
+      value: 'At a depth of 500m, the internal valve will close to ensure that CO<sub>2</sub>,
+        which has been liquefied due to the pressure, will not escape to the top
+        balloon when the device is brought back to the surface.
+
+
+        Upon resurfacing,
+        the CO<sub>2</sub> will return to its gaseous form. CO<sub>2</sub> sensors
+        will then detect any changes in CO<sub>2</sub> levels in each balloon.'
       objectReference: {fileID: 0}
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -17867,12 +18164,12 @@ PrefabInstance:
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -409.7
+      value: -457.9
       objectReference: {fileID: 0}
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99.2
+      value: -86.7
       objectReference: {fileID: 0}
     - target: {fileID: 8729126034631302140, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
@@ -17929,7 +18226,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e45a1691523204e2f978e5d3ff36dabd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -526.34
+      value: -527.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e45a1691523204e2f978e5d3ff36dabd,
         type: 3}
@@ -27742,12 +28039,27 @@ PrefabInstance:
     - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
       propertyPath: m_text
-      value: "The Prototype Design allows the user to see how all of the individual
-        components are assembled to form the functional prototype. Each component
-        was individually replicated with computer-aided design and pieced together
-        in Blender before being animated in Unity. \n\n-Hover over a component to
-        learn more. \n-Double click on a component to snap to it\n-Drag the mouse
-        to rotate the view.\n-Press the buttons for alternate model views."
+      value: 'The Prototype Design feature allows users to visualize the assembly
+        process and functionality of individual components. It is a representation
+        of the real life functional prototype
+
+
+        In this design, balloons
+        located at the top and bottom are filled with air. As CO<sub>2</sub> liquefies,
+        it collects in the bottom balloon. Subsequently, a valve positioned in the
+        middle closes to separate the balloons, resulting in a higher concentration
+        of CO<sub>2</sub> in the bottom balloon. CO<sub>2</sub> sensors are then
+        utilized to measure the CO<sub>2</sub> levels in each balloon.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914153532656441990, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5193297175776277426, guid: 19abd344ea3c741b1b35f5ea7036c7f3,
         type: 3}
