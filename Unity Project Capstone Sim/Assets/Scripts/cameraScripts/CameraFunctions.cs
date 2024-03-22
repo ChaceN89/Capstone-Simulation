@@ -75,6 +75,12 @@ public class CameraFunctions : MonoBehaviour {
     private void ZoomCamera(Vector3 targetPosition, float minZoom, float maxZoom, float zoomSpeed) {
         // Zooming using scroll wheel
         float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+        
+        // Detect if running in WebGL and adjust sensitivity
+        if (Application.platform == RuntimePlatform.WebGLPlayer){
+            scrollWheelInput *= 2;
+        }
+
         Vector3 currentPosition = transform.position;
         float distance = Vector3.Distance(currentPosition, targetPosition);
 

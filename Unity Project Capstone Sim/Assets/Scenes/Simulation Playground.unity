@@ -13991,7 +13991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minZoom: 2
   maxZoom: 18
-  zoomSpeed: 3
+  zoomSpeed: 4
 --- !u!114 &961739755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14005,7 +14005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minZoom: 1
-  maxZoom: 4
+  maxZoom: 6
   zoomSpeed: 5
 --- !u!114 &961739756
 MonoBehaviour:
@@ -14021,7 +14021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minZoom: 10
   maxZoom: 160
-  zoomSpeed: 10
+  zoomSpeed: 16
 --- !u!114 &961739757
 MonoBehaviour:
   m_ObjectHideFlags: 0
