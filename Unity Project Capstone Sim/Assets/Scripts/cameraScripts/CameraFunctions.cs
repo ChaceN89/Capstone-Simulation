@@ -54,10 +54,6 @@ public class CameraFunctions : MonoBehaviour {
             Vector3 delta = Input.mousePosition - previousPosition;
             previousPosition = Input.mousePosition;
 
-            if (Application.platform == RuntimePlatform.WebGLPlayer){
-                sensitivity *= 0.5f;
-            }
-
             // Calculate the rotation angles based on mouse movement
             float angleY = delta.x * sensitivity * rotationSpeed * 0.1f;
             float angleX = -delta.y * sensitivity * rotationSpeed * 0.1f;
