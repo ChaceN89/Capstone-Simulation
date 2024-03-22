@@ -9,6 +9,8 @@ public class PUseCaseCamera : MonoBehaviour {
     // zoom level for this specific camera
     public float minZoom = 2.0f; // Minimum distance to the object
     public float maxZoom = 16.0f; // Maximum distance to the object
+    public float zoomSpeed = 5.0f; // zoom speed
+
 
     // the name the camera will rotate around - Valve is in center and is default 
     private string targetName="PUseCase";
@@ -31,6 +33,6 @@ public class PUseCaseCamera : MonoBehaviour {
         targetName = cameraFunctions.CheckMouseClick(targetName);
 
         // check for inputs to move the camera around the target
-        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom);
+        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom, zoomSpeed:zoomSpeed);
     }
 }

@@ -8,7 +8,7 @@ public class CameraFunctions : MonoBehaviour {
     // camera movement varibales
     public float rotationSpeed = 5f; // the rotation speed of the camera 
     public float sensitivity = 4f; // Sensitivity of the mouse movement
-    public float zoomSpeed = 2.0f; // Zoom speed of the camera
+    // public float zoomSpeed = 2.0f; // Zoom speed of the camera
 
 
     // for determining if a double click takes place
@@ -21,7 +21,7 @@ public class CameraFunctions : MonoBehaviour {
     private Vector3 currentRotation;
 
     // to move the camera in and out and around
-    public void MoveCamera(string targetName, float minZoom = 2.0f, float maxZoom = 16.0f, bool renderPos = false) {
+    public void MoveCamera(string targetName, float minZoom = 2.0f, float maxZoom = 16.0f, bool renderPos = false, float zoomSpeed = 5.0f) {
         // Check if the object tag exists and it it does
         if (targetName != null) {
             GameObject targetObject = GameObject.Find(targetName);// get the game object related to the current tag
@@ -36,7 +36,7 @@ public class CameraFunctions : MonoBehaviour {
             }
             
             MoveCameraAroundObject(targetPosition);// move around the object 
-            ZoomCamera(targetPosition, minZoom, maxZoom);// zoom into the object 
+            ZoomCamera(targetPosition, minZoom, maxZoom, zoomSpeed);// zoom into the object 
 
         }
         else {
@@ -72,7 +72,7 @@ public class CameraFunctions : MonoBehaviour {
     }
 
     // /for zooming in a and out of the object 
-    private void ZoomCamera(Vector3 targetPosition, float minZoom, float maxZoom) {
+    private void ZoomCamera(Vector3 targetPosition, float minZoom, float maxZoom, float zoomSpeed) {
         // Zooming using scroll wheel
         float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
         Vector3 currentPosition = transform.position;

@@ -9,6 +9,7 @@ public class GondolaCamera : MonoBehaviour {
     // zoom level for this specific camera
     public float minZoom = 4.0f; // Minimum distance to the object
     public float maxZoom = 30.0f; // Maximum distance to the object
+    public float zoomSpeed = 5.0f; // zoom speed
 
     // the name the camera will rotate around - Valve is in center and is default 
     private string targetName="OffShorePlatform";
@@ -35,6 +36,6 @@ public class GondolaCamera : MonoBehaviour {
         targetName = cameraFunctions.CheckMouseClick(targetName);
 
         // check for inputs to move the camera around the target
-        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom,renderPos:true);
+        cameraFunctions.MoveCamera(targetName, minZoom, maxZoom,renderPos:true, zoomSpeed:zoomSpeed);
     }
 }
