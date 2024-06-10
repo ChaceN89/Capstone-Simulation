@@ -25,6 +25,7 @@ The Capstone-Simulation is a Unity project that simulates the process of carbon 
 ## Technologies Used
 
 - **Unity:** Game development platform for creating the simulation.
+- **Blender:** 3D modeling and Animations.
 - **Amazon Amplify:** Deployment platform for the WebGL game.
 - **C#:** Programming language used for scripting within Unity.
 
